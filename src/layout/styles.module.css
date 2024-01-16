@@ -1,0 +1,46 @@
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.logo {
+  height: 54px; /* Set the logo height */
+}
+
+.sidebar {
+  overflow: auto !important;
+  height: 100vh !important;
+  position: fixed !important;
+  left: 0;
+  top: 64px;
+
+  background-color: white;
+}
+
+.header {
+  top: 0;
+  z-index: 1011 !important;
+  width: 100%;
+  display: flex !important;
+  padding: 1rem !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.layout {
+  padding: 0 24px 24px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.icon {
+  height: 10px !important;
+  width: 10px !important;
+}

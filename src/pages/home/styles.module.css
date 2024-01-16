@@ -1,0 +1,27 @@
+.logo {
+  width: auto;
+  height: 50px;
+}
+
+.header {
+  position: fixed !important;
+  top: 0;
+  z-index: 1111;
+  width: 100%;
+  display: flex !important;
+  padding: 1rem !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.image {
+  height: 50px;
+}
+
+.container {
+  margin-top: 72px !important;
+  width: 100%;
+  padding: 1rem;
+}

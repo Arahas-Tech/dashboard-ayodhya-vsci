@@ -1,0 +1,96 @@
+/* AQI Styles */
+
+.card {
+  background-color: #fff;
+  height: max-content;
+  border-radius: 8px;
+  border: 1px solid #f5f6f8;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.cardHeader p {
+  margin-top: 0;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.rightSection p {
+  margin: 0;
+  text-align: center;
+}
+
+.aqiValue {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.dateTime {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+}
+
+.aqiParams {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  width: 100%;
+  flex-grow: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.aqiParams .aqiParamCard {
+  text-align: center;
+  margin: 0 2px 4px;
+  background-color: #fff;
+  width: 23.9%;
+  color: #232323;
+  border-radius: 9px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 78px;
+}
+
+.paramsValueUnit {
+  width: 100%;
+}
+
+.paramsValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.paramsTitle {
+  color: #232323;
+  font-size: 0.8rem;
+  font-weight: 400;
+}

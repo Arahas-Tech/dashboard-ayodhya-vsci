@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="282" height="58" viewBox="0 0 282 58">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #31a33b;
+      }
+
+      .cls-3 {
+        fill: #90bf3e;
+      }
+
+      .cls-4 {
+        fill: #ffe600;
+      }
+
+      .cls-5 {
+        fill: #f98309;
+      }
+
+      .cls-6 {
+        fill: #e60019;
+      }
+
+      .cls-7 {
+        fill: #af0a1b;
+      }
+
+      .cls-8, .cls-9 {
+        fill: #232323;
+      }
+
+      .cls-8 {
+        font-size: 10px;
+        font-family: Roboto-Regular, Roboto;
+      }
+
+      .cls-9 {
+        font-size: 11px;
+        font-family: Roboto-Medium, Roboto;
+        font-weight: 600;
+      }
+    </style>
+  </defs>
+  <g id="Group_6727" data-name="Group 6727" transform="translate(-45 -49)">
+    <rect id="Rectangle_2177" data-name="Rectangle 2177" class="cls-1" width="282" height="58" rx="10" transform="translate(45 49)"/>
+    <g id="Group_6726" data-name="Group 6726" transform="translate(-2 -2)">
+      <g id="Group_6723" data-name="Group 6723" transform="translate(19 -4)">
+        <rect id="Rectangle_2178" data-name="Rectangle 2178" class="cls-2" width="36" height="6" transform="translate(59 65)"/>
+        <rect id="Rectangle_2179" data-name="Rectangle 2179" class="cls-3" width="36" height="6" transform="translate(95 65)"/>
+        <rect id="Rectangle_2180" data-name="Rectangle 2180" class="cls-4" width="36" height="6" transform="translate(131 65)"/>
+        <rect id="Rectangle_2181" data-name="Rectangle 2181" class="cls-5" width="36" height="6" transform="translate(167 65)"/>
+        <rect id="Rectangle_2182" data-name="Rectangle 2182" class="cls-6" width="36" height="6" transform="translate(203 65)"/>
+        <rect id="Rectangle_2183" data-name="Rectangle 2183" class="cls-7" width="36" height="6" transform="translate(239 65)"/>
+      </g>
+      <g id="Group_6724" data-name="Group 6724" transform="translate(0 -4)">
+        <text id="_0" data-name="0" class="cls-8" transform="translate(78 84)"><tspan x="-2.808" y="0">0</tspan></text>
+        <text id="_50" data-name="50" class="cls-8" transform="translate(109 84)"><tspan x="-5.615" y="0">50</tspan></text>
+        <text id="_100" data-name="100" class="cls-8" transform="translate(144 84)"><tspan x="-8.423" y="0">100</tspan></text>
+        <text id="_200" data-name="200" class="cls-8" transform="translate(182 84)"><tspan x="-8.423" y="0">200</tspan></text>
+        <text id="_300" data-name="300" class="cls-8" transform="translate(219 84)"><tspan x="-8.423" y="0">300</tspan></text>
+        <text id="_400" data-name="400" class="cls-8" transform="translate(257 84)"><tspan x="-8.423" y="0">400</tspan></text>
+        <text id="_500" data-name="500" class="cls-8" transform="translate(294 84)"><tspan x="-8.423" y="0">500</tspan></text>
+      </g>
+      <g id="Group_6725" data-name="Group 6725">
+        <text id="Good" class="cls-8" transform="translate(78 100)"><tspan x="0" y="0">Good</tspan></text>
+        <text id="Severe" class="cls-8" transform="translate(264 100)"><tspan x="0" y="0">Severe</tspan></text>
+        <text id="AQI_Scale" data-name="AQI Scale" class="cls-9" transform="translate(168 100)"><tspan x="0" y="0">AQI Scale</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

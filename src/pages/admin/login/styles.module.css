@@ -1,0 +1,90 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden !important;
+  text-align: center;
+  background: url("assets/video/Ayodhya BG.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.speeches {
+  display: flex;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  align-self: flex-end !important;
+  align-content: flex-end !important;
+  gap: 1rem;
+  width: 100%;
+  margin: 0.8rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.loginContainer {
+  /* background-color: #ffffffe8; */
+  border: 1px solid #ff8400;
+  color: #ff8400;
+  background-color: rgba(31, 31, 31, 0.65);
+  padding: 2rem 1rem;
+  margin-right: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #e1c9c933;
+  height: max-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formContainer {
+  padding: 0 1rem;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutText {
+  color: #ff8400;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .loginContainer {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginContainer {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .loginContainer {
+    width: 100%;
+    margin: 1rem;
+  }
+  .loginContainer img {
+    height: 70px !important;
+    width: 100%;
+  }
+}
+
+.loginButton {
+  border-bottom: 0 !important;
+}

@@ -1,10 +1,14 @@
-import { Card, Progress } from "antd";
+import { Card, Flex, Progress } from "antd";
 
 import styles from "./styles.module.css";
 import React, { useState } from "react";
 
 import { Typography } from "antd";
-import { AQIPastData } from "constants/aqiPastData";
+import {
+  AQIPastData,
+  AQIPastDataStation1,
+  AQIPastDataStation2,
+} from "constants/aqiPastData";
 import LineChart from "components/charts/LineChart";
 
 const { Text } = Typography;
@@ -67,14 +71,17 @@ function AQI({ AQIs, aqiData }) {
     return colorRange ? colorRange.color : "#ffffff";
   };
 
-  const aqiDataSeries = [
+  const aqiDataSeriesStation1 = [
     {
       type: "spline",
-      dataPoints: AQIPastData,
+      dataPoints: AQIPastDataStation1,
     },
+  ];
+
+  const aqiDataSeriesStation2 = [
     {
       type: "spline",
-      dataPoints: [{ y: 100 }],
+      dataPoints: AQIPastDataStation2,
     },
   ];
 
@@ -167,9 +174,19 @@ function AQI({ AQIs, aqiData }) {
           );
         })}
 
-        <div>
-          <LineChart dataSeries={aqiDataSeries} />
-        </div>
+        <Card title="Past AQI Data">
+          <Flex vertical gap={16}>
+            <LineChart
+              dataSeries={aqiDataSeriesStation1}
+              chartTitle="Station 1 (Digambar Akhada)"
+            />
+
+            <LineChart
+              dataSeries={aqiDataSeriesStation2}
+              chartTitle="Station 2 (DR. RML Avadh University)"
+            />
+          </Flex>
+        </Card>
       </Card>
     </>
   );

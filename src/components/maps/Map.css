@@ -1,18 +1,18 @@
 .leaflet-popup-content-wrapper {
   border-radius: 5px !important;
-  color: #eaeff1 !important;
 }
 
-.leaflet-container a.leaflet-popup-close-button {
-  color: white !important;
+.leaflet-popup-content-wrapper b {
+  color: var(--colorPrimary);
 }
 
-.leaflet-container a.leaflet-popup-close-button:hover {
-  color: #b4c7cd !important;
+.leaflet-popup-content {
+  margin: 1rem 0;
+  padding: 0 1rem;
 }
 
 .leaflet-popup-tip {
-  border-radius: 2px !important;
+  display: none;
 }
 
 .map {

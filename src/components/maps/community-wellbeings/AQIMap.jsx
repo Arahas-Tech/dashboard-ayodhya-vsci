@@ -48,7 +48,7 @@ const AQIMap = ({ AQIs, aqiData }) => {
     <MapContainer
       center={mapCenter}
       zoom={11}
-      minZoom={11}
+      minZoom={10}
       style={{ height: "60vh", width: "100%" }}
     >
       <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />

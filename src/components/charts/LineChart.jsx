@@ -46,11 +46,10 @@ function LineChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
       titleFontSize: 12,
       stripLines: [
         {
-          value: 100,
           startValue: 50,
           endValue: 100,
           color: "#d8d8d8",
-          label: "Label 1",
+          label: "Base Line",
           labelFontColor: "#a8a8a8",
         },
       ],

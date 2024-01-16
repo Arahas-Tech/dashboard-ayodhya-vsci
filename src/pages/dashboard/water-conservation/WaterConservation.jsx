@@ -193,7 +193,7 @@ const WaterConservation = () => {
                 </Row>
 
                 <Row justify="space-around" align="middle" gutter={[16, 16]}>
-                  <Col lg={24}>
+                  <Col span={24}>
                     <DoughnutChart
                       dataSeries={tapConnectionsData}
                       chartTitle="Tap Connections Distribution"
@@ -201,7 +201,7 @@ const WaterConservation = () => {
                     />
                   </Col>
 
-                  <Col lg={24}>
+                  <Col span={24}>
                     <DoughnutChart
                       dataSeries={waterSuppliedData}
                       chartTitle="Water Supplied Distribution (MLD)"
@@ -215,7 +215,7 @@ const WaterConservation = () => {
             <TabPane tab="Water Supply" key="Water Supply">
               <Card className="tab-cards">
                 <Row gutter={[16, 16]}>
-                  <Col lg={24}>
+                  <Col span={24}>
                     <GroupedColumnChart
                       chartTitle="Water Supply"
                       dataSeries={dataSeriesWS}
@@ -223,7 +223,7 @@ const WaterConservation = () => {
                       yAxisTitle="Values"
                     />
                   </Col>
-                  <Col lg={24}>
+                  <Col span={24}>
                     <SingleColumnChart
                       chartTitle="Connection Type Water Supply"
                       dataSeries={dataSeriesCTWS}
@@ -243,7 +243,7 @@ const WaterConservation = () => {
             >
               <Card className="tab-cards">
                 <Row justify="space-around" align="middle" gutter={[16, 16]}>
-                  <Col lg={24}>
+                  <Col span={24}>
                     <BarChart
                       chartTitle="Present Water Supply (in MLD)"
                       dataSeries={waterData}
@@ -252,7 +252,7 @@ const WaterConservation = () => {
                     />
                   </Col>
 
-                  <Col lg={24}>
+                  <Col span={24}>
                     <Space
                       direction="vertical"
                       size="middle"
@@ -300,7 +300,7 @@ const WaterConservation = () => {
                     </Space>
                   </Col>
 
-                  <Col lg={24}>
+                  <Col span={24}>
                     <BarChart
                       chartTitle="Estimated Future Water Demand (in MLD)"
                       dataSeries={establishmentData}
@@ -315,15 +315,15 @@ const WaterConservation = () => {
             <TabPane tab="Sewer Coverage" key="Sewer Coverage">
               <Card className="tab-cards">
                 <Row gutter={[16, 16]}>
-                  <Col lg={24}>
+                  <Col span={24}>
                     <Card title="Household Sewer Connections">
                       <Space
                         direction="vertical"
                         size="middle"
                         style={{ display: "flex" }}
                       >
-                        <Row gutter={[16, 16]}>
-                          <Col lg={12}>
+                        <Row gutter={[8, 8]}>
+                          <Col md={12} lg={12}>
                             <Card>
                               <Statistic
                                 title="Household Connected"
@@ -332,7 +332,7 @@ const WaterConservation = () => {
                             </Card>
                           </Col>
 
-                          <Col lg={12}>
+                          <Col md={12} lg={12}>
                             <Card>
                               <Statistic
                                 title="Household Not connected"
@@ -347,7 +347,7 @@ const WaterConservation = () => {
                     </Card>
                   </Col>
 
-                  <Col lg={24}>
+                  <Col span={24}>
                     <Card title="Household Septage Coverage">
                       <Space
                         direction="vertical"
@@ -355,7 +355,7 @@ const WaterConservation = () => {
                         style={{ display: "flex" }}
                       >
                         <Row gutter={[16, 16]}>
-                          <Col lg={24}>
+                          <Col span={24}>
                             <Card>
                               <Statistic
                                 title="Household Covered"

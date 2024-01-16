@@ -6,14 +6,28 @@ import L from "leaflet";
 import ADABoundary from "../GeoJSON/ADA_Boundary.json";
 import WaterBodiesLayer from "../GeoJSON/WaterBodies.json";
 import "components/maps/Map.css";
+import MarkerClusterWaterBodies from "../utils/MarkerCluster";
 
 const WaterBodies = () => {
   const mapCenter = [26.7622, 82.1698];
-  let customMarker = L.icon({
-    iconUrl: require("assets/svg/pond.svg").default,
-    iconSize: [24, 24],
-    iconAnchor: [32, 64],
-  });
+
+  let markers;
+
+  const addMarkers = () => {
+    markers = [];
+
+    WaterBodiesLayer?.features?.map((feature) =>
+      markers.push({
+        position: {
+          latitude: feature.geometry.coordinates[1],
+          longitude: feature.geometry.coordinates[0],
+        },
+        properties: feature.properties,
+      })
+    );
+  };
+
+  addMarkers();
 
   return (
     <MapContainer
@@ -30,23 +44,9 @@ const WaterBodies = () => {
     >
       <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
 
-      <GeoJSON data={ADABoundary}>
-        {WaterBodiesLayer.features.map((feature) => {
-          return (
-            feature && (
-              <Marker
-                position={[
-                  feature.geometry.coordinates[1],
-                  feature.geometry.coordinates[0],
-                ]}
-                icon={customMarker}
-              >
-                <Popup></Popup>
-              </Marker>
-            )
-          );
-        })}
-      </GeoJSON>
+      <MarkerClusterWaterBodies markers={markers} addMarkers={addMarkers} />
+
+      <GeoJSON data={ADABoundary} />
     </MapContainer>
   );
 };

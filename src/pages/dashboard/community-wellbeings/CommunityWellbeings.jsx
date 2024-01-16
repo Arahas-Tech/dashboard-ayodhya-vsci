@@ -108,7 +108,7 @@ const CommunityWellBeings = () => {
         </div>
       ) : (
         <Flex vertical gap={16}>
-          <Row gutter={[16, 16]}>
+          <Row gutter={[8, 8]}>
             <Col lg={12}>
               <AQIMap aqiData={aqiData} AQIs={AQIs} />
             </Col>

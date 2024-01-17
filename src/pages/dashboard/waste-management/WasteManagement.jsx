@@ -199,7 +199,7 @@ const WasteManagement = () => {
     <>
       <div className={styles.kpiContainer}>
         <div className={styles.kpiCard}>
-          <span>24,70,996</span>
+          <span>6,72,861</span>
           <div>
             Population <sup>(*as per Census 2011)</sup>
           </div>
@@ -231,7 +231,7 @@ const WasteManagement = () => {
         </div>
 
         <div className={styles.kpiCard}>
-          <span>115 Tons</span>
+          <span>140 Tons</span>
           <div>
             Total Daily <br /> Generated Waste
           </div>

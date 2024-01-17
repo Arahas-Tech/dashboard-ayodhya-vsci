@@ -2,10 +2,6 @@
   border-radius: 5px !important;
 }
 
-.leaflet-popup-content-wrapper b {
-  color: var(--colorPrimary);
-}
-
 .leaflet-popup-content {
   margin: 1rem 0;
   padding: 0 1rem;

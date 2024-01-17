@@ -1,10 +1,12 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 import "components/maps/Map.css";
 import { allToilets } from "constants/Waste-Management/AllToilets";
+
+import ADABoundary from "../GeoJSON/ADA_Boundary.json";
 
 const AllToilets = () => {
   const mapCenter = [26.7922, 82.1998];
@@ -34,6 +36,8 @@ const AllToilets = () => {
       }}
     >
       <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
+
+      <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
 
       {allToilets.map((item) => (
         <Marker position={[item.latitude, item.longitude]} icon={customMarker}>

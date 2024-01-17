@@ -1,7 +1,6 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 
 import ADABoundary from "../GeoJSON/ADA_Boundary.json";
 import WaterBodiesLayer from "../GeoJSON/WaterBodies.json";
@@ -46,7 +45,7 @@ const WaterBodies = () => {
 
       <MarkerClusterWaterBodies markers={markers} addMarkers={addMarkers} />
 
-      <GeoJSON data={ADABoundary} />
+      <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
     </MapContainer>
   );
 };

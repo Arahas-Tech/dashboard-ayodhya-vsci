@@ -1,10 +1,12 @@
 import React from "react";
 import { Progress, Row } from "antd";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+
+import ADABoundary from "../GeoJSON/ADA_Boundary.json";
 
 const AQIMap = ({ AQIs, aqiData }) => {
   const mapCenter = [26.7622, 82.1598];
@@ -52,6 +54,8 @@ const AQIMap = ({ AQIs, aqiData }) => {
       style={{ height: "60vh", width: "100%" }}
     >
       <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
+
+      <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
 
       {aqiData?.map((point) => {
         const AQI = AQIs && AQIs[point.id];

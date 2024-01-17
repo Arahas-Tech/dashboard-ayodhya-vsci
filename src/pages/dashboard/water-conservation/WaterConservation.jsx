@@ -3,7 +3,7 @@ import React from "react";
 import CountUp from "react-countup";
 
 import { ArrowUpOutlined, InfoCircleFilled } from "@ant-design/icons";
-import { Card, Col, Row, Space, Statistic, Tabs, Tooltip } from "antd";
+import { Card, Col, Flex, Row, Space, Statistic, Tabs, Tooltip } from "antd";
 
 // import styles from "./styles.module.css";
 import GroupedColumnChart from "components/charts/GroupedColumnChart";
@@ -12,6 +12,7 @@ import SingleColumnChart from "components/charts/SingleColumnChart";
 import DoughnutChart from "components/charts/DoughnutChart";
 import BarChart from "components/charts/BarChart";
 import WaterBodies from "components/maps/water-conservation/WaterBodies";
+import RainfallChart from "components/charts/DrillDownCharts";
 
 const { TabPane } = Tabs;
 
@@ -131,6 +132,10 @@ const WaterConservation = () => {
 
   return (
     <>
+      <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
+        <img src={require("assets/sdgs/11.6.svg").default} alt="11.6" /> Reduce
+        the environmental impacts of cities
+      </Flex>
       <Row gutter={[8, 8]}>
         <Col md={24} lg={12}>
           <Card>
@@ -139,11 +144,19 @@ const WaterConservation = () => {
         </Col>
 
         <Col md={24} lg={12}>
-          <Tabs defaultActiveKey="Water Connections" type="card">
+          <Tabs defaultActiveKey="Rainfall" type="card">
+            <TabPane tab="Rainfall" key="Rainfall">
+              <Card className="tab-cards">
+                <Flex vertical gap={16}>
+                  <RainfallChart />
+                </Flex>
+              </Card>
+            </TabPane>
+
             <TabPane tab="Water Connections" key="Water Connections">
               <Card className="tab-cards">
-                <Row gutter={[16, 16]}>
-                  <Col md={24} lg={6}>
+                <Row align="middle" gutter={[8, 8]}>
+                  <Col xs={24} md={12} lg={12}>
                     <Card bordered={false} style={{ display: "flex" }}>
                       <Statistic
                         title="Total Households"
@@ -155,7 +168,7 @@ const WaterConservation = () => {
                     </Card>
                   </Col>
 
-                  <Col md={24} lg={6}>
+                  <Col xs={24} md={12} lg={12}>
                     <Card bordered={false} style={{ display: "flex" }}>
                       <Statistic
                         title="Total Slums"
@@ -166,8 +179,10 @@ const WaterConservation = () => {
                       />
                     </Card>
                   </Col>
+                </Row>
 
-                  <Col md={24} lg={6}>
+                <Row gutter={[8, 8]}>
+                  <Col xs={24} md={12} lg={12}>
                     <Card bordered={false}>
                       <Statistic
                         title="Institutional Establishments"
@@ -179,7 +194,7 @@ const WaterConservation = () => {
                     </Card>
                   </Col>
 
-                  <Col md={24} lg={6}>
+                  <Col xs={24} md={12} lg={12}>
                     <Card bordered={false}>
                       <Statistic
                         title="Commercial Establishments"

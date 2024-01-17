@@ -48,4 +48,11 @@ code {
 .tab-cards {
   height: 60vh !important;
   overflow-y: auto;
+  width: 100%;
+}
+
+.ant-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

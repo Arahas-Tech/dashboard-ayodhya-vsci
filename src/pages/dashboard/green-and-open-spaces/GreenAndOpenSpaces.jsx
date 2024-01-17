@@ -144,6 +144,15 @@ const GreenAndOpenSpaces = () => {
 
   return (
     <>
+      <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-11.png")}
+          alt="11.6"
+          className="goals-image"
+        />
+        Reduce the environmental impacts of city
+      </Flex>
+
       <Flex vertical gap={16} align="middle">
         <Card title="Present Land Use">
           <Row gutter={[16, 16]}>

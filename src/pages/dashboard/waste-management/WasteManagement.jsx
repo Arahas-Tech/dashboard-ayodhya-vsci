@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "antd";
+import { Flex, Table } from "antd";
 import Icon from "@ant-design/icons";
 import { allToilets } from "constants/Waste-Management/AllToilets";
 import AllToilets from "components/maps/waste-management/AllToilets";
@@ -197,6 +197,15 @@ const WasteManagement = () => {
 
   return (
     <>
+      <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-11.png")}
+          alt="11.6"
+          className="goals-image"
+        />
+        Reduce the environmental impacts of city
+      </Flex>
+
       <div className={styles.kpiContainer}>
         <div className={styles.kpiCard}>
           <span>6,72,861</span>

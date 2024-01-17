@@ -133,11 +133,15 @@ const WaterConservation = () => {
   return (
     <>
       <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
-        <img src={require("assets/sdgs/11.6.svg").default} alt="11.6" /> Reduce
-        the environmental impacts of cities
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-11.png")}
+          alt="11.6"
+          className="goals-image"
+        />
+        Reduce the environmental impacts of city
       </Flex>
       <Row gutter={[8, 8]}>
-        <Col md={24} lg={12}>
+        <Col xs={24} md={24} lg={12}>
           <Card>
             <WaterBodies />
           </Card>

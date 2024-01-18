@@ -10,7 +10,7 @@ import {
 } from "constants/aqiPastData";
 import LineChart from "components/charts/LineChart";
 
-import GaugeComponent from "react-gauge-component";
+// import GaugeComponent from "react-gauge-component";
 import ValueCard from "./aqi/ValueCard";
 
 const { Text } = Typography;
@@ -97,18 +97,18 @@ function AQI({ AQIs, aqiData }) {
   return (
     <>
       <Card className="tab-cards">
+        <Segmented
+          options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
+          block
+          value={value}
+          onChange={setValue}
+        />
+
         {value === "Current/Live" &&
           aqiData?.map((data) => {
             const AQI = AQIs && AQIs[data.id];
             return (
               <>
-                <Segmented
-                  options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
-                  block
-                  value={value}
-                  onChange={setValue}
-                />
-
                 <div className={styles.card}>
                   <div className={styles.cardHeader}>
                     <Flex align="center" gap={8}>

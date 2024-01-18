@@ -6,7 +6,7 @@
   height: 140px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgba(31, 31, 31, 0.65);
+  background-color: #fff;
   box-shadow: var(--box-shadow);
   text-align: left;
   border: 1px solid #ff8400;
@@ -29,6 +29,6 @@
 }
 
 .textContainer p {
-  font-size: 0.5rem;
-  color: #ff8400;
+  font-size: 0.6rem;
+  /* color: #ff8400; */
 }

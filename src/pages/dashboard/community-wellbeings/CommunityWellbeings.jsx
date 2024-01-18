@@ -5,10 +5,9 @@ import axios from "axios";
 
 import AQI from "components/community-wellbeings/AQI";
 import AQIMap from "components/maps/community-wellbeings/AQIMap";
-import { Col, Flex, Row, Spin, Tabs, Typography } from "antd";
+import { Col, Flex, Row, Spin, Tabs } from "antd";
 
 const { TabPane } = Tabs;
-const { Title } = Typography;
 
 const CommunityWellBeings = () => {
   const [aqiIDs, setAQIIDs] = useState();
@@ -100,7 +99,7 @@ const CommunityWellBeings = () => {
   return (
     <>
       <Row align="middle" justify="space-between" style={{ marginBottom: 5 }}>
-        <Col span={12}>
+        <Col span={24}>
           <Flex align="center" gap={5}>
             <img
               src={require("assets/sdgs/E-WEB-Goal-06.png")}
@@ -121,14 +120,14 @@ const CommunityWellBeings = () => {
           </Flex>
         </Col>
 
-        <Col span={12}>
+        {/* <Col span={12}>
           <Flex align="center" justify="end" gap={5}>
             <b className="scores">Score:</b>
             <Title level={5} style={{ margin: 0 }}>
               0/7
             </Title>
           </Flex>
-        </Col>
+        </Col> */}
       </Row>
 
       <Tabs defaultActiveKey="AQI" type="card">

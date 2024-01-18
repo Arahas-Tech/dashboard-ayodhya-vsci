@@ -99,22 +99,34 @@ const CommunityWellBeings = () => {
 
   return (
     <>
-      <Row align="center" justify="space-between" style={{ marginBottom: 5 }}>
+      <Row align="middle" justify="space-between" style={{ marginBottom: 5 }}>
         <Col span={12}>
           <Flex align="center" gap={5}>
             <img
-              src={require("assets/sdgs/E-WEB-Goal-11.png")}
-              alt="11.6"
+              src={require("assets/sdgs/E-WEB-Goal-06.png")}
+              alt="06"
               className="goals-image"
             />
-            Reduce the environmental impacts of city
+            <img
+              src={require("assets/sdgs/E-WEB-Goal-11.png")}
+              alt="11"
+              className="goals-image"
+            />
+
+            <img
+              src={require("assets/sdgs/E-WEB-Goal-15.png")}
+              alt="15"
+              className="goals-image"
+            />
           </Flex>
         </Col>
 
         <Col span={12}>
           <Flex align="center" justify="end" gap={5}>
-            <b>Score:</b>
-            <Title level={5}>0/7</Title>
+            <b className="scores">Score:</b>
+            <Title level={5} style={{ margin: 0 }}>
+              0/7
+            </Title>
           </Flex>
         </Col>
       </Row>
@@ -131,10 +143,10 @@ const CommunityWellBeings = () => {
       ) : (
         <Flex vertical gap={16}>
           <Row gutter={[8, 8]}>
-            <Col lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <AQIMap aqiData={aqiData} AQIs={AQIs} />
             </Col>
-            <Col lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <AQI aqiData={aqiData} AQIs={AQIs} />
             </Col>
           </Row>

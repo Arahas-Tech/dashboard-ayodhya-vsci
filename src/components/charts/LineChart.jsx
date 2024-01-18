@@ -29,7 +29,7 @@ function LineChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
   const options = {
     exportEnabled: true,
     animationEnabled: true,
-    height: 260,
+    height: 280,
     theme: "light2",
     colorSet: "blueShades",
     axisX: {

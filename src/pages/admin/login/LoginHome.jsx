@@ -81,7 +81,7 @@ function LoginHome() {
 
           <h3 className={styles.heading}>
             Ayodhya
-            <br /> Vedic Sustainable City Index
+            <br /> Vedic City Sustainablility Index
           </h3>
 
           <Form

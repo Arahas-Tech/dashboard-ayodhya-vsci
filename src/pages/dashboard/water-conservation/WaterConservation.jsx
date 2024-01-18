@@ -3,7 +3,17 @@ import React from "react";
 import CountUp from "react-countup";
 
 import { ArrowUpOutlined, InfoCircleFilled } from "@ant-design/icons";
-import { Card, Col, Flex, Row, Space, Statistic, Tabs, Tooltip } from "antd";
+import {
+  Badge,
+  Card,
+  Col,
+  Flex,
+  Row,
+  Space,
+  Statistic,
+  Tabs,
+  Tooltip,
+} from "antd";
 
 // import styles from "./styles.module.css";
 import GroupedColumnChart from "components/charts/GroupedColumnChart";
@@ -78,11 +88,11 @@ const WaterConservation = () => {
     {
       type: "bar",
       dataPoints: [
-        { label: "Piped", y: 27.33 },
-        { label: "Tankers", y: 0 },
-        { label: "Tubewell & Borewell", y: 4.49 },
-        { label: "Treated", y: 0 },
-        { label: "Total ", y: 31.82 },
+        { label: "Piped Distributions", y: 27.33 },
+        { label: "Tankers Distributions", y: 0 },
+        { label: "Tubewell & Borewell Distributions", y: 4.49 },
+        { label: "Treated Distributions", y: 0 },
+        { label: "Total Distributions", y: 31.82 },
         { label: "Avg. Per Capita (in LPCD)", y: 134.985 },
       ],
     },
@@ -134,27 +144,41 @@ const WaterConservation = () => {
     <>
       <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
         <img
-          src={require("assets/sdgs/E-WEB-Goal-11.png")}
-          alt="11.6"
+          src={require("assets/sdgs/E-WEB-Goal-06.png")}
+          alt="06"
           className="goals-image"
         />
-        Reduce the environmental impacts of city
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-11.png")}
+          alt="11"
+          className="goals-image"
+        />
+
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-15.png")}
+          alt="15"
+          className="goals-image"
+        />
       </Flex>
       <Row gutter={[8, 8]}>
         <Col xs={24} md={24} lg={12}>
-          <Card>
-            <WaterBodies />
-          </Card>
+          <Badge.Ribbon placement="start" text="Water Bodies (Location)">
+            <Card>
+              <WaterBodies />
+            </Card>
+          </Badge.Ribbon>
         </Col>
 
         <Col md={24} lg={12}>
           <Tabs defaultActiveKey="Rainfall" type="card">
             <TabPane tab="Rainfall" key="Rainfall">
-              <Card className="tab-cards">
-                <Flex vertical gap={16}>
-                  <RainfallChart />
-                </Flex>
-              </Card>
+              <Badge.Ribbon placement="start" text="Normal: 1001.7 mm">
+                <Card className="tab-cards">
+                  <Flex vertical gap={16}>
+                    <RainfallChart />
+                  </Flex>
+                </Card>
+              </Badge.Ribbon>
             </TabPane>
 
             <TabPane tab="Water Connections" key="Water Connections">
@@ -189,8 +213,8 @@ const WaterConservation = () => {
                   <Col xs={24} md={12} lg={12}>
                     <Card bordered={false}>
                       <Statistic
-                        title="Institutional Establishments"
-                        value="#"
+                        title="Commercial Establishments"
+                        value="2953"
                         valueStyle={{
                           color: "#3f8600",
                         }}
@@ -201,7 +225,7 @@ const WaterConservation = () => {
                   <Col xs={24} md={12} lg={12}>
                     <Card bordered={false}>
                       <Statistic
-                        title="Commercial Establishments"
+                        title="Institutional Establishments"
                         value="#"
                         valueStyle={{
                           color: "#3f8600",
@@ -213,19 +237,23 @@ const WaterConservation = () => {
 
                 <Row justify="space-around" align="middle" gutter={[16, 16]}>
                   <Col span={24}>
-                    <DoughnutChart
-                      dataSeries={tapConnectionsData}
-                      chartTitle="Tap Connections Distribution"
-                      exportable={false}
-                    />
+                    <Badge.Ribbon placement="end" text="Total: 31.82 MLD">
+                      <DoughnutChart
+                        dataSeries={tapConnectionsData}
+                        chartTitle="Tap Connections Distribution"
+                        exportable={false}
+                      />
+                    </Badge.Ribbon>
                   </Col>
 
                   <Col span={24}>
-                    <DoughnutChart
-                      dataSeries={waterSuppliedData}
-                      chartTitle="Water Supplied Distribution (MLD)"
-                      exportable={false}
-                    />
+                    <Badge.Ribbon placement="end" text="Total: 28.2 MLD">
+                      <DoughnutChart
+                        dataSeries={waterSuppliedData}
+                        chartTitle="Water Supplied Distribution (MLD)"
+                        exportable={false}
+                      />
+                    </Badge.Ribbon>
                   </Col>
                 </Row>
               </Card>
@@ -263,12 +291,14 @@ const WaterConservation = () => {
               <Card className="tab-cards">
                 <Row justify="space-around" align="middle" gutter={[16, 16]}>
                   <Col span={24}>
-                    <BarChart
-                      chartTitle="Present Water Supply (in MLD)"
-                      dataSeries={waterData}
-                      xAxisTitle=""
-                      yAxisTitle="Values"
-                    />
+                    <Badge.Ribbon placement="end" text="Total: 31.82 MLD">
+                      <BarChart
+                        chartTitle="Present Water Supply (2023)"
+                        dataSeries={waterData}
+                        xAxisTitle=""
+                        yAxisTitle="Values"
+                      />
+                    </Badge.Ribbon>
                   </Col>
 
                   <Col span={24}>
@@ -279,7 +309,7 @@ const WaterConservation = () => {
                     >
                       <Card bordered={false}>
                         <Statistic
-                          title="Current Water Supply"
+                          title="Present Water Supply (2023)"
                           value={31.8}
                           precision={2}
                           valueStyle={{
@@ -301,7 +331,7 @@ const WaterConservation = () => {
                       </Card>
                       <Card bordered={false}>
                         <Statistic
-                          title="Required Increase"
+                          title="% Increase"
                           value={(83.34 / 31.8) * 100}
                           precision={2}
                           formatter={formatter}
@@ -320,12 +350,14 @@ const WaterConservation = () => {
                   </Col>
 
                   <Col span={24}>
-                    <BarChart
-                      chartTitle="Estimated Future Water Demand (in MLD)"
-                      dataSeries={establishmentData}
-                      xAxisTitle=""
-                      yAxisTitle="Values"
-                    />
+                    <Badge.Ribbon placement="end" text="Total: 83.34 MLD">
+                      <BarChart
+                        chartTitle="Estimated Water Demand (2025)"
+                        dataSeries={establishmentData}
+                        xAxisTitle=""
+                        yAxisTitle="Values"
+                      />
+                    </Badge.Ribbon>
                   </Col>
                 </Row>
               </Card>

@@ -1,19 +1,23 @@
-import { Card, Flex, Progress } from "antd";
+import { Card, Flex, Progress, Row, Segmented } from "antd";
 
 import styles from "./styles.module.css";
 import React, { useState } from "react";
 
 import { Typography } from "antd";
 import {
-  AQIPastData,
   AQIPastDataStation1,
   AQIPastDataStation2,
 } from "constants/aqiPastData";
 import LineChart from "components/charts/LineChart";
 
+import GaugeComponent from "react-gauge-component";
+import ValueCard from "./aqi/ValueCard";
+
 const { Text } = Typography;
 
 function AQI({ AQIs, aqiData }) {
+  const [value, setValue] = useState("Current/Live");
+
   const [ellipsis] = useState(true);
   const aqiColors = [
     { range: [0, 50], label: "Good", color: "rgb(0, 176, 80, 0.125)" },
@@ -52,7 +56,7 @@ function AQI({ AQIs, aqiData }) {
     {
       range: [301, 400],
       label: "Very Poor",
-      color: "rgb(255, 0, 0) ",
+      color: "rgb(255, 0, 0)",
     },
     { range: [401, 700], label: "Severe", color: "rgb(192, 0, 0)" },
   ];
@@ -88,105 +92,95 @@ function AQI({ AQIs, aqiData }) {
   return (
     <>
       <Card className="tab-cards">
-        {aqiData?.map((data) => {
-          const AQI = AQIs && AQIs[data.id];
-          return (
-            <div className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={styles.leftSection}>
-                  <img
-                    width="30"
-                    height="30"
-                    src={require("assets/svg/aqi.svg").default}
-                    alt="AQI"
-                  />
-                  <Text
-                    style={ellipsis ? { width: 160 } : undefined}
-                    ellipsis={ellipsis ? { tooltip: data.name } : false}
-                  >
-                    <b>{data.name}</b>
-                    <p className={styles.dateTime}>
-                      {new Date(
-                        data.last_data_received_time * 1000
-                      ).toLocaleString("en-IN")}
-                    </p>
-                  </Text>
-                </div>
+        <Segmented
+          options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
+          block
+          value={value}
+          onChange={setValue}
+        />
 
-                <div className={styles.rightSection}>
-                  <b>AQI</b>
+        {value === "Current/Live" &&
+          aqiData?.map((data) => {
+            const AQI = AQIs && AQIs[data.id];
+            return (
+              <div className={styles.card}>
+                <div className={styles.cardHeader}>
+                  <Flex align="center" gap={8}>
+                    <img
+                      width="30"
+                      height="30"
+                      src={require("assets/svg/aqi.svg").default}
+                      alt="AQI"
+                    />
+                    <Text
+                      style={ellipsis ? { width: 160 } : undefined}
+                      ellipsis={ellipsis ? { tooltip: data.name } : false}
+                    >
+                      <b>{data.name}</b>
+                      <p className={styles.dateTime}>
+                        {new Date(
+                          data.last_data_received_time * 1000
+                        ).toLocaleString("en-IN")}
+                      </p>
+                    </Text>
+                  </Flex>
 
-                  <Progress
-                    size="small"
-                    type="dashboard"
-                    percent={(AQI / 900) * 100}
-                    format={() => (
-                      <div style={{ color: getColorForAqiParams(AQI) }}>
-                        <b>{AQI}</b>
-                      </div>
-                    )}
-                    strokeColor={getColorForAqiParams(AQI)}
-                    strokeWidth={10}
-                  />
-                </div>
-              </div>
+                  <Flex align="center" gap={8}>
+                    <b>AQI</b>
 
-              <div
-                className={styles.aqiParams}
-                style={{
-                  backgroundColor: getColorForAqi(AQI),
-                }}
-              >
-                {data.parameters.map(
-                  (parameter) =>
-                    !(
-                      parameter.key === "aqi" ||
-                      parameter.key === "data_availability"
-                    ) && (
-                      <div
-                        key={parameter.key}
-                        className={styles.aqiParamCard}
-                        style={
-                          ["so2", "pm2.5", "pm10", "no2"].includes(
-                            parameter.key
-                          )
-                            ? {
-                                borderBottom: `2px solid ${getColorForAqiParams(
-                                  parameter.value
-                                )}`,
-                              }
-                            : {}
-                        }
-                      >
-                        <div className={styles.paramsValueUnit}>
-                          <div className={styles.paramsValue}>
-                            {parseFloat(parameter.value).toFixed(2)}
-                          </div>
-                          <div className={styles.paramsTitle}>
-                            {parameter.name} ({parameter.unit})
-                          </div>
+                    <Progress
+                      size="small"
+                      type="dashboard"
+                      percent={(AQI / 900) * 100}
+                      format={() => (
+                        <div style={{ color: getColorForAqiParams(AQI) }}>
+                          <b>{AQI}</b>
                         </div>
-                      </div>
-                    )
-                )}
+                      )}
+                      strokeColor={getColorForAqiParams(AQI)}
+                      strokeWidth={10}
+                    />
+                  </Flex>
+                </div>
+
+                <div
+                  className={styles.aqiParams}
+                  style={{
+                    backgroundColor: getColorForAqi(AQI),
+                  }}
+                >
+                  {data.parameters.map(
+                    (parameter) =>
+                      !(
+                        parameter.key === "aqi" ||
+                        parameter.key === "data_availability"
+                      ) && (
+                        <ValueCard
+                          parameter={parameter}
+                          borderColor={getColorForAqiParams(parameter.value)}
+                        />
+                      )
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-        <Card title="Past AQI Data">
-          <Flex vertical gap={16}>
-            <LineChart
-              dataSeries={aqiDataSeriesStation1}
-              chartTitle="Station 1 (Digambar Akhada)"
-            />
+        {value === "Current/Live" && (
+          <Card title="Past AQI Data">
+            <Flex vertical gap={16}>
+              <LineChart
+                dataSeries={aqiDataSeriesStation1}
+                chartTitle="Station 1 (Digambar Akhada)"
+              />
 
-            <LineChart
-              dataSeries={aqiDataSeriesStation2}
-              chartTitle="Station 2 (DR. RML Avadh University)"
-            />
-          </Flex>
-        </Card>
+              <LineChart
+                dataSeries={aqiDataSeriesStation2}
+                chartTitle="Station 2 (DR. RML Avadh University)"
+              />
+            </Flex>
+          </Card>
+        )}
       </Card>
     </>
   );

@@ -28,7 +28,7 @@ CanvasJS.addColorSet("blueShades", [
 const BarChart = ({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) => {
   const options = {
     animationEnabled: true,
-    height: 260,
+    height: 280,
     theme: "light2",
     colorSet: "blueShades",
     axisX: {
@@ -48,8 +48,8 @@ const BarChart = ({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) => {
       labelFontFamily: "Poppins",
     },
     legend: {
-      verticalAlign: "top",
-      horizontalAlign: "left",
+      horizontalAlign: "right",
+      verticalAlign: "bottom",
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,

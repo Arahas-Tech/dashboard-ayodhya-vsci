@@ -41,7 +41,7 @@ const WaterBodies = () => {
       easeLinearity={0.35}
       style={{ width: "100%", height: "61vh" }}
     >
-      <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
+      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
       <MarkerClusterWaterBodies markers={markers} addMarkers={addMarkers} />
 

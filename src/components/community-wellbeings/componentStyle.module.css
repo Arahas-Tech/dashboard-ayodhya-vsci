@@ -1,0 +1,41 @@
+.aqiParamCard {
+  text-align: center;
+  margin: 0 2px 4px;
+  background-color: #fff;
+  width: 23.9%;
+  color: #232323;
+  border-radius: 9px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 78px;
+}
+
+.paramsValueUnit {
+  width: 100%;
+}
+
+.paramsValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.paramsTitle {
+  color: #232323;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+@media (max-width: 500px) {
+  .aqiParamCard {
+    width: 48%;
+  }
+}
+
+@media (max-width: 350px) {
+  .aqiParamCard {
+    width: 100%;
+  }
+}

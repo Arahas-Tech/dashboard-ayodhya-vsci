@@ -61,3 +61,24 @@ code {
   width: 60px;
   height: 60px;
 }
+
+@media (max-width: 768px) {
+  .header-text {
+    font-size: 1rem !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-text {
+    font-size: 0.7rem !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-text {
+    font-size: 0.6rem !important;
+    text-align: center;
+  }
+}

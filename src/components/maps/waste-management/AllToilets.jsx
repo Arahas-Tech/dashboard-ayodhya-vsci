@@ -35,7 +35,7 @@ const AllToilets = () => {
         rgba(27, 31, 35, 0.15) 0px 0px 0px 1px`,
       }}
     >
-      <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
+      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
       <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
 

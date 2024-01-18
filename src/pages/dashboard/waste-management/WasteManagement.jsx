@@ -209,9 +209,7 @@ const WasteManagement = () => {
       <div className={styles.kpiContainer}>
         <div className={styles.kpiCard}>
           <span>6,72,861</span>
-          <div>
-            Population <sup>(*as per Census 2011)</sup>
-          </div>
+          <div>Population </div>
           <Icon
             component={() => (
               <img
@@ -256,10 +254,10 @@ const WasteManagement = () => {
         </div>
 
         <div className={styles.kpiCard}>
-          <span>400gm</span>
+          <span>200gm</span>
           <div>
             Avg Waste <br /> Generation/person/day
-          </div>{" "}
+          </div>
           <Icon
             component={() => (
               <img

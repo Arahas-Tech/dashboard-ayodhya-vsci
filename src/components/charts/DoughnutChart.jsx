@@ -29,7 +29,7 @@ function DoughnutChart({ dataSeries, chartTitle, exportable }) {
   const options = {
     exportEnabled: exportable ?? false,
     animationEnabled: true,
-    height: 260,
+    height: 280,
     theme: "light2",
     colorSet: "blueShades",
     toolTip: {
@@ -37,8 +37,8 @@ function DoughnutChart({ dataSeries, chartTitle, exportable }) {
       labelFontFamily: "Poppins",
     },
     legend: {
-      verticalAlign: "top",
-      horizontalAlign: "left",
+      horizontalAlign: "right",
+      verticalAlign: "bottom",
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,

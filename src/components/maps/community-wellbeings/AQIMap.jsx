@@ -53,7 +53,7 @@ const AQIMap = ({ AQIs, aqiData }) => {
       minZoom={10}
       style={{ height: "60vh", width: "100%" }}
     >
-      <TileLayer url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}" />
+      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
       <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
 

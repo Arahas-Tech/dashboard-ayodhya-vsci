@@ -17,7 +17,7 @@ function HomePageTabs() {
       <Layout>
         <Header className={styles.header}>
           <img src={ADALogo} alt="ada-logo" className={styles.logo} />
-          <h2>Vedic Sustainable City Index</h2>
+          <h2 className="header-text">Vedic City Sustainablility Index</h2>
           <img src={ArahasLogo} alt="arahas-logo" className={styles.logo} />
         </Header>
         <Content className={styles.container}>

@@ -1,7 +1,9 @@
-import { Card, Col, Flex, Row } from "antd";
+import { Card, Col, Flex, Row, Typography } from "antd";
 import PieChart from "components/charts/PieChart";
 import SingleColumnChart from "components/charts/SingleColumnChart";
 import React from "react";
+
+const { Title } = Typography;
 
 const GreenAndOpenSpaces = () => {
   const landuseData = [
@@ -144,24 +146,44 @@ const GreenAndOpenSpaces = () => {
 
   return (
     <>
-      <Flex align="center" gap={5} style={{ marginBottom: 5 }}>
-        <img
-          src={require("assets/sdgs/E-WEB-Goal-11.png")}
-          alt="11.6"
-          className="goals-image"
-        />
-        Reduce the environmental impacts of city
-      </Flex>
-
+      <Row align="middle" justify="space-between" style={{ marginBottom: 5 }}>
+        <Col span={12}>
+          <Flex align="center" gap={5}>
+            <img
+              src={require("assets/sdgs/E-WEB-Goal-11.png")}
+              alt="11"
+              className="goals-image"
+            />
+            <img
+              src={require("assets/sdgs/E-WEB-Goal-13.png")}
+              alt="13"
+              className="goals-image"
+            />
+            <img
+              src={require("assets/sdgs/E-WEB-Goal-15.png")}
+              alt="15"
+              className="goals-image"
+            />
+          </Flex>
+        </Col>
+        <Col span={12}>
+          <Flex align="center" justify="end" gap={5}>
+            <b className="scores">Score:</b>
+            <Title level={5} style={{ margin: 0 }}>
+              0/7
+            </Title>
+          </Flex>
+        </Col>
+      </Row>
       <Flex vertical gap={16} align="middle">
         <Card title="Present Land Use">
           <Row gutter={[16, 16]}>
             <Col md={24} lg={12}>
               <SingleColumnChart
-                chartTitle="Current Land Use (%)"
+                chartTitle="As on January 2024*"
                 dataSeries={landUseDataSeries}
                 xAxisTitle=""
-                yAxisTitle="in ha"
+                yAxisTitle="in hectares"
                 xAxisLabel={false}
                 yAxisLabel={false}
               />
@@ -169,15 +191,11 @@ const GreenAndOpenSpaces = () => {
 
             <Col md={24} lg={12}>
               <PieChart
-                chartTitle="Current Land Use"
+                chartTitle="As on January 2024* (%)"
                 dataSeries={landuseDataPercentage.map(({ label, y }) => ({
                   label,
                   y,
                 }))}
-                xAxisTitle=""
-                yAxisTitle="in ha"
-                xAxisLabel={false}
-                yAxisLabel={false}
               />
             </Col>
           </Row>

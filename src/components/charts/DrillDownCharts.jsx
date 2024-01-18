@@ -45,8 +45,6 @@ const RainfallChart = () => {
     if (RainfallData && RainfallData[0]) {
       const yearData = RainfallData[0][year];
 
-      console.log(RainfallData && RainfallData[0][year]?.monthWise[0], year);
-
       if (yearData) {
         Object.entries(yearData.monthWise[0]).forEach(([key, value]) => {
           monthlyData.push({
@@ -102,9 +100,7 @@ const RainfallChart = () => {
   options = {
     exportEnabled: true,
     animationEnabled: true,
-    height: 260,
-    theme: "light2",
-    colorSet: "blueShades",
+    height: 300,
     axisX: {
       titleFontFamily: "Poppins",
       labelFontFamily: "Poppins",
@@ -130,9 +126,8 @@ const RainfallChart = () => {
       labelFontFamily: "Poppins",
     },
     legend: {
-      verticalAlign: "top",
-      horizontalAlign: "left",
-      reversed: true,
+      horizontalAlign: "bottom",
+      verticalAlign: "bottom",
       cursor: "pointer",
       fontFamily: "Poppins",
     },
@@ -141,6 +136,7 @@ const RainfallChart = () => {
       {
         type: "spline",
         name: "Rainfall",
+        showInLegend: true,
         dataPoints: chartData,
         click: handlePointClick,
       },

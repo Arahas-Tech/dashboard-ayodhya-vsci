@@ -18,7 +18,7 @@ function HomePageTabs() {
         <Header className={styles.header}>
           <img src={ADALogo} alt="ada-logo" className={styles.logo} />
           <h2 className="header-text">Vedic City Sustainablility Index</h2>
-          <img src={ArahasLogo} alt="arahas-logo" className={styles.logo} />
+          <img src={ArahasLogo} alt="arahas-logo" height="40" />
         </Header>
         <Content className={styles.container}>
           <Tabs defaultActiveKey="Water Conservation" type="card">

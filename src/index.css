@@ -57,6 +57,10 @@ code {
   gap: 1rem;
 }
 
+.ant-float-btn {
+  z-index: 999 !important;
+}
+
 .ant-float-btn-content {
   display: flex !important;
   align-items: center !important;

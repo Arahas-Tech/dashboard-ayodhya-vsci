@@ -170,15 +170,84 @@ const WaterConservation = () => {
         </Col>
 
         <Col md={24} lg={12}>
-          <Tabs defaultActiveKey="Rainfall" type="card">
-            <TabPane tab="Rainfall" key="Rainfall">
-              <Badge.Ribbon placement="start" text="Normal: 1001.7 mm">
-                <Card className="tab-cards">
-                  <Flex vertical gap={16}>
-                    <RainfallChart />
-                  </Flex>
-                </Card>
-              </Badge.Ribbon>
+          <Tabs defaultActiveKey="Present to Future Demand" type="card">
+            <TabPane
+              tab="Present to Future Demand"
+              key="Present to Future Demand"
+            >
+              <Card className="tab-cards">
+                <Row justify="space-around" align="middle" gutter={[16, 16]}>
+                  <Col span={24}>
+                    <Badge.Ribbon placement="end" text="Total: 31.82 MLD">
+                      <BarChart
+                        chartTitle="Present Water Supply (2023)"
+                        dataSeries={waterData}
+                        xAxisTitle=""
+                        yAxisTitle="Values"
+                      />
+                    </Badge.Ribbon>
+                  </Col>
+
+                  <Col span={24}>
+                    <Space
+                      direction="vertical"
+                      size="middle"
+                      style={{ display: "flex" }}
+                    >
+                      <Card bordered={false}>
+                        <Statistic
+                          title="Present Water Supply (2023)"
+                          value={31.8}
+                          precision={2}
+                          valueStyle={{
+                            color: "#0e0e0e",
+                          }}
+                          suffix="MLD"
+                        />
+                      </Card>
+                      <Card bordered={false}>
+                        <Statistic
+                          title="Projected Requirement (2025)"
+                          value={83.34}
+                          precision={2}
+                          valueStyle={{
+                            color: "#0e0e0e",
+                          }}
+                          suffix="MLD"
+                        />
+                      </Card>
+                      <Card bordered={false}>
+                        <Statistic
+                          title="% Increase"
+                          value={(83.34 / 31.8) * 100}
+                          precision={2}
+                          formatter={formatter}
+                          prefix={<ArrowUpOutlined />}
+                          valueStyle={{
+                            color: "#3f8600",
+                          }}
+                          suffix={
+                            <Tooltip placement="top" title="Check Adequacy">
+                              <InfoCircleFilled />
+                            </Tooltip>
+                          }
+                        />
+                      </Card>
+                    </Space>
+                  </Col>
+
+                  <Col span={24}>
+                    <Badge.Ribbon placement="end" text="Total: 83.34 MLD">
+                      <BarChart
+                        chartTitle="Estimated Water Demand (2025)"
+                        dataSeries={establishmentData}
+                        xAxisTitle=""
+                        yAxisTitle="Values"
+                      />
+                    </Badge.Ribbon>
+                  </Col>
+                </Row>
+              </Card>
             </TabPane>
 
             <TabPane tab="Water Connections" key="Water Connections">
@@ -284,83 +353,14 @@ const WaterConservation = () => {
               </Card>
             </TabPane>
 
-            <TabPane
-              tab="Present to Future Demand"
-              key="Present to Future Demand"
-            >
-              <Card className="tab-cards">
-                <Row justify="space-around" align="middle" gutter={[16, 16]}>
-                  <Col span={24}>
-                    <Badge.Ribbon placement="end" text="Total: 31.82 MLD">
-                      <BarChart
-                        chartTitle="Present Water Supply (2023)"
-                        dataSeries={waterData}
-                        xAxisTitle=""
-                        yAxisTitle="Values"
-                      />
-                    </Badge.Ribbon>
-                  </Col>
-
-                  <Col span={24}>
-                    <Space
-                      direction="vertical"
-                      size="middle"
-                      style={{ display: "flex" }}
-                    >
-                      <Card bordered={false}>
-                        <Statistic
-                          title="Present Water Supply (2023)"
-                          value={31.8}
-                          precision={2}
-                          valueStyle={{
-                            color: "#0e0e0e",
-                          }}
-                          suffix="MLD"
-                        />
-                      </Card>
-                      <Card bordered={false}>
-                        <Statistic
-                          title="Projected Requirement (2025)"
-                          value={83.34}
-                          precision={2}
-                          valueStyle={{
-                            color: "#0e0e0e",
-                          }}
-                          suffix="MLD"
-                        />
-                      </Card>
-                      <Card bordered={false}>
-                        <Statistic
-                          title="% Increase"
-                          value={(83.34 / 31.8) * 100}
-                          precision={2}
-                          formatter={formatter}
-                          prefix={<ArrowUpOutlined />}
-                          valueStyle={{
-                            color: "#3f8600",
-                          }}
-                          suffix={
-                            <Tooltip placement="top" title="Check Adequacy">
-                              <InfoCircleFilled />
-                            </Tooltip>
-                          }
-                        />
-                      </Card>
-                    </Space>
-                  </Col>
-
-                  <Col span={24}>
-                    <Badge.Ribbon placement="end" text="Total: 83.34 MLD">
-                      <BarChart
-                        chartTitle="Estimated Water Demand (2025)"
-                        dataSeries={establishmentData}
-                        xAxisTitle=""
-                        yAxisTitle="Values"
-                      />
-                    </Badge.Ribbon>
-                  </Col>
-                </Row>
-              </Card>
+            <TabPane tab="Rainfall" key="Rainfall">
+              <Badge.Ribbon placement="start" text="Normal: 1001.7 mm">
+                <Card className="tab-cards">
+                  <Flex vertical gap={16}>
+                    <RainfallChart />
+                  </Flex>
+                </Card>
+              </Badge.Ribbon>
             </TabPane>
 
             <TabPane tab="Sewer Coverage" key="Sewer Coverage">

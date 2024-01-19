@@ -1,9 +1,7 @@
-import { Card, Col, Flex, Row, Typography } from "antd";
+import { Card, Col, Flex, Row } from "antd";
 import PieChart from "components/charts/PieChart";
 import SingleColumnChart from "components/charts/SingleColumnChart";
 import React from "react";
-
-const { Title } = Typography;
 
 const GreenAndOpenSpaces = () => {
   const landuseData = [
@@ -170,7 +168,7 @@ const GreenAndOpenSpaces = () => {
       <Flex vertical gap={16} align="middle">
         <Card title="Present Land Use">
           <Row gutter={[16, 16]}>
-            <Col md={24} lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <SingleColumnChart
                 chartTitle="As of February 2023*"
                 dataSeries={landUseDataSeries}
@@ -181,7 +179,7 @@ const GreenAndOpenSpaces = () => {
               />
             </Col>
 
-            <Col md={24} lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <PieChart
                 chartTitle="As of February 2023* (%)"
                 dataSeries={landuseDataPercentage.map(({ label, y }) => ({
@@ -193,22 +191,22 @@ const GreenAndOpenSpaces = () => {
           </Row>
         </Card>
 
-        <Card title="Proposed Land Use">
+        <Card title="Projected Land Use (2031)">
           <Row gutter={[16, 16]}>
-            <Col md={24} lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <SingleColumnChart
-                chartTitle="Proposed Land Use"
+                chartTitle="Projected Land Use (2031)"
                 dataSeries={proposedLandUseDataSeries}
                 xAxisTitle=""
-                yAxisTitle="in ha"
+                yAxisTitle="in hectares"
                 xAxisLabel={false}
                 yAxisLabel={false}
               />
             </Col>
 
-            <Col md={24} lg={12}>
+            <Col xs={24} md={24} lg={12}>
               <PieChart
-                chartTitle="Proposed Land Use (%)"
+                chartTitle="Projected Land Use (2031) (%)"
                 dataSeries={proposedLandUseDataSeriesPercentage.map(
                   ({ label, y }) => ({
                     label,
@@ -216,7 +214,7 @@ const GreenAndOpenSpaces = () => {
                   })
                 )}
                 xAxisTitle=""
-                yAxisTitle="in ha"
+                yAxisTitle="in hectares"
                 xAxisLabel={false}
                 yAxisLabel={false}
               />

@@ -13,6 +13,7 @@ import {
   Layout,
   Row,
 } from "antd";
+import { useMediaQuery } from "react-responsive";
 
 import PM from "assets/images/PM.jpg";
 import CM from "assets/images/CM.jpg";
@@ -67,6 +68,10 @@ const LoginNew = () => {
   const navigate = useNavigate();
   const [language, setLanguage] = useState(true); //true->english false->hindi
 
+  const isTabletOrMobile = useMediaQuery({
+    query: "(max-width: 968px)",
+  });
+
   const speechesEnglish = [
     {
       imgSrc: PM,
@@ -114,6 +119,13 @@ const LoginNew = () => {
       designation: "नगर आयुक्त, अयोध्या एवं उपाध्यक्ष, ए.डी.ए",
     },
   ];
+
+  const scoreCardStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: isTabletOrMobile ? "max-content" : 300,
+  };
 
   const handleClick = (e) => {
     navigate("/dashboard");
@@ -167,7 +179,7 @@ const LoginNew = () => {
             <Flex vertical align="center" gap={16}>
               <Row gutter={[8, 8]} align="middle">
                 <Col xs={24} md={12} lg={12}>
-                  <Card className={styles.cardContent}>
+                  <Card bodyStyle={scoreCardStyle}>
                     <b>
                       Vedic City Sustainability Index involves the development
                       of a set of indicators or criteria to evaluate different
@@ -181,11 +193,23 @@ const LoginNew = () => {
                 </Col>
 
                 <Col xs={24} md={12} lg={12}>
-                  <Card className={styles.cardContent}>
-                    <h2 style={{ margin: 0 }}>
+                  <Card bodyStyle={scoreCardStyle}>
+                    <h2>
                       <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
                       77
                     </h2>
+
+                    <p>
+                      "The Ayodhya Vedic City Sustainability Index (beta
+                      version) offers a unique perspective on sustainable urban
+                      living. This index is anchored in the principles of
+                      Sustainable Cities, with a special emphasis on United
+                      Nations SDG 11.6. It establishes a foundational benchmark
+                      for tracking progress and guiding future improvements. Our
+                      quarterly updates will focus on reducing the environmental
+                      footprint per capita in Ayodhya Dham, ensuring a greener,
+                      more sustainable future."
+                    </p>
                   </Card>
                 </Col>
               </Row>

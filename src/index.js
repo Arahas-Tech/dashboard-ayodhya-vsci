@@ -11,9 +11,11 @@ import "leaflet/dist/leaflet.css";
 
 dayjs.locale("hi");
 
-// document.addEventListener("contextmenu", (event) => {
-//   event.preventDefault();
-// });
+process.env.NODE_ENV !== "development"
+  ? document.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    })
+  : console.log("PROD");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Table } from "antd";
+import { Badge, Card, Col, Flex, Row, Table } from "antd";
 import Icon from "@ant-design/icons";
 import { allToilets } from "constants/Waste-Management/AllToilets";
 import AllToilets from "components/maps/waste-management/AllToilets";
@@ -203,72 +203,60 @@ const WasteManagement = () => {
           alt="11.6"
           className="goals-image"
         />
-        Reduce the environmental impacts of city
       </Flex>
 
-      <div className={styles.kpiContainer}>
-        <div className={styles.kpiCard}>
-          <span>6,72,861</span>
-          <div>Population </div>
-          <Icon
-            component={() => (
-              <img
-                src={require("assets/svg/Population.svg").default}
-                alt="Population"
-                className={styles.icon}
-              />
-            )}
-          />
-        </div>
-
-        <div className={styles.kpiCard}>
-          <span>18%</span>
-          <div>
-            Population <br /> Growth Rate
+      <Row gutter={[8, 8]}>
+        <Col xs={24} md={12} lg={8}>
+          <div className={styles.kpiCard}>
+            <span>6,72,861</span>
+            <div>Population </div>
+            <Icon
+              component={() => (
+                <img
+                  src={require("assets/svg/Population.svg").default}
+                  alt="Population"
+                  className={styles.icon}
+                />
+              )}
+            />
           </div>
-          <Icon
-            component={() => (
-              <img
-                src={require("assets/svg/Population Growth.svg").default}
-                alt="Population Growth"
-                className={styles.icon}
-              />
-            )}
-          />
-        </div>
+        </Col>
 
-        <div className={styles.kpiCard}>
-          <span>140 Tons</span>
-          <div>
-            Total Daily <br /> Generated Waste
+        <Col xs={24} md={12} lg={8}>
+          <div className={styles.kpiCard}>
+            <span>140 Tons</span>
+            <div>
+              Total Daily <br /> Generated Waste
+            </div>
+            <Icon
+              component={() => (
+                <img
+                  src={require("assets/svg/Waste Generation.svg").default}
+                  alt="Waste Generation"
+                  className={styles.icon}
+                />
+              )}
+            />
           </div>
-          <Icon
-            component={() => (
-              <img
-                src={require("assets/svg/Waste Generation.svg").default}
-                alt="Waste Generation"
-                className={styles.icon}
-              />
-            )}
-          />
-        </div>
-
-        <div className={styles.kpiCard}>
-          <span>200gm</span>
-          <div>
-            Avg Waste <br /> Generation/person/day
+        </Col>
+        <Col xs={24} md={12} lg={8}>
+          <div className={styles.kpiCard}>
+            <span>200gm</span>
+            <div>
+              Avg Waste <br /> Generation/person/day
+            </div>
+            <Icon
+              component={() => (
+                <img
+                  src={require("assets/svg/Waste PPD.svg").default}
+                  alt="Waste Generation PPD"
+                  className={styles.icon}
+                />
+              )}
+            />
           </div>
-          <Icon
-            component={() => (
-              <img
-                src={require("assets/svg/Waste PPD.svg").default}
-                alt="Waste Generation PPD"
-                className={styles.icon}
-              />
-            )}
-          />
-        </div>
-      </div>
+        </Col>
+      </Row>
 
       <h2 className={styles.heading}> All SBM Toilets in Ayodhya</h2>
       <Table
@@ -282,7 +270,11 @@ const WasteManagement = () => {
         style={{ width: "100%" }}
       />
 
-      <AllToilets />
+      <Badge.Ribbon placement="start" text="SBM Toilets (Location)">
+        <Card>
+          <AllToilets />
+        </Card>
+      </Badge.Ribbon>
     </>
   );
 };

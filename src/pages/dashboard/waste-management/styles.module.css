@@ -2,26 +2,15 @@
   color: var(--colorPrimary);
 }
 
-.kpiContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
 .kpiCard {
   overflow: hidden;
   position: relative;
   box-shadow: var(--box-shadow);
   float: left;
   padding: 1em;
+  width: 100%;
   border-radius: 0.3em;
-  width: 25%;
   height: 120px;
-  min-width: 180px;
-  margin-left: 0.5em;
-  margin-top: 0.5em;
   background-color: white;
 }
 

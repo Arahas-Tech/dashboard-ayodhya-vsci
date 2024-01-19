@@ -12,8 +12,8 @@ const AQIMap = ({ AQIs, aqiData }) => {
   const mapCenter = [26.7622, 82.1598];
 
   const customIcon = new L.Icon({
-    iconUrl: require("assets/svg/aqi.svg").default,
-    iconSize: [50, 50],
+    iconUrl: require("assets/svg/pin.svg").default,
+    iconSize: [25, 25],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
   });

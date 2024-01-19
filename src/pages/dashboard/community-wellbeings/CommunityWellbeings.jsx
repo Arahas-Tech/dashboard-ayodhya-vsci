@@ -49,9 +49,11 @@ const CommunityWellBeings = () => {
       } catch (error) {}
     };
 
+    getAQIData();
+
     const intervalCall = setInterval(async () => {
       await getAQIData();
-    }, 10000);
+    }, 60000);
 
     return () => {
       // clean up

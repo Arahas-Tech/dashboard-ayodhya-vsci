@@ -6,10 +6,8 @@ import CanvasJSReact from "@canvasjs/react-charts";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var CanvasJS = CanvasJSReact.CanvasJS;
 CanvasJS.addColorSet("blueShades", [
-  "#e5243b", // No Poverty
   "#dda63a", // Zero Hunger
   "#4c9f38", // Good Health and Well-being
-  "#c5192d", // Quality Education
   "#ff3a21", // Gender Equality
   "#26bde2", // Clean Water and Sanitation
   "#fcc30b", // Affordable and Clean Energy

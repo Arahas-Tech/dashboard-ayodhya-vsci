@@ -102,3 +102,17 @@
     flex-wrap: wrap;
   }
 }
+
+.vsciScore {
+  color: var(--colorPrimary);
+}
+
+.cardContent {
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  .cardContent {
+    height: 300px;
+  }
+}

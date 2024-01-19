@@ -5,7 +5,7 @@ import ADALogo from "assets/ADA2023.png";
 
 import styles from "./styles.module.css";
 
-import { Card, Flex, Layout, Tabs } from "antd";
+import { Badge, Card, Flex, Layout, Tabs } from "antd";
 import { kpiItemsHome } from "constants/kpiRoutes";
 
 const { Header, Content } = Layout;
@@ -32,7 +32,9 @@ function HomePageTabs() {
                 }
                 key={item.label}
               >
-                <Card>{item.children}</Card>
+                <Badge.Ribbon text="VSCI: 80">
+                  <Card>{item.children}</Card>
+                </Badge.Ribbon>
               </TabPane>
             ))}
           </Tabs>

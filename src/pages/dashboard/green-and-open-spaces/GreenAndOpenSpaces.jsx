@@ -166,14 +166,6 @@ const GreenAndOpenSpaces = () => {
             />
           </Flex>
         </Col>
-        <Col span={12}>
-          <Flex align="center" justify="end" gap={5}>
-            <b className="scores">Score:</b>
-            <Title level={5} style={{ margin: 0 }}>
-              0/7
-            </Title>
-          </Flex>
-        </Col>
       </Row>
       <Flex vertical gap={16} align="middle">
         <Card title="Present Land Use">

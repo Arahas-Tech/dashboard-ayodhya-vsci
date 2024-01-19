@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import ADALogo from "assets/ADA2023.png";
 import ArahasLogo from "assets/Arahas-Logo Clear.png";
-import TranslateIcon from "assets/svg/Translate-Icon.svg";
 import { useNavigate } from "react-router-dom";
-import { Button, Card, Carousel, Flex, FloatButton, Layout, Space } from "antd";
+import {
+  Button,
+  Card,
+  Carousel,
+  Col,
+  Flex,
+  FloatButton,
+  Layout,
+  Row,
+} from "antd";
 
 import PM from "assets/images/PM.jpg";
 import CM from "assets/images/CM.jpg";
@@ -156,17 +164,30 @@ const LoginNew = () => {
             </Flex>
 
             <Flex vertical align="center" gap={16}>
-              <Card>
-                <b>
-                  Vedic City Sustainability Index involves the development of a
-                  set of indicators or criteria to evaluate different aspects of
-                  Ayodhya's sustainability, which may include environmental,
-                  social, economic, and governance factors. These indicators may
-                  cover areas such as air quality, green spaces, energy
-                  efficiency, waste management, social inclusivity, economic.
-                  prosperity and more.
-                </b>
-              </Card>
+              <Row gutter={[8, 8]} align="middle">
+                <Col xs={24} md={12} lg={12}>
+                  <Card className={styles.cardContent}>
+                    <b>
+                      Vedic City Sustainability Index involves the development
+                      of a set of indicators or criteria to evaluate different
+                      aspects of Ayodhya's sustainability, which may include
+                      environmental, social, economic, and governance factors.
+                      These indicators may cover areas such as air quality,
+                      green spaces, energy efficiency, waste management, social
+                      inclusivity, economic. prosperity and more.
+                    </b>
+                  </Card>
+                </Col>
+
+                <Col xs={24} md={12} lg={12}>
+                  <Card className={styles.cardContent}>
+                    <h2 style={{ margin: 0 }}>
+                      <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
+                      80
+                    </h2>
+                  </Card>
+                </Col>
+              </Row>
 
               <Button
                 size="large"
@@ -216,17 +237,31 @@ const LoginNew = () => {
             </Flex>
 
             <Flex vertical align="center" gap={16}>
-              <Card>
-                <b>
-                  वैदिक सस्टेनेबल सिटी इंडेक्स (वैदिक सतत नगर सूचकांक) के तहत
-                  सामान्यत: ऐसे सूचकांक या मापदंडों को विकसित किया जाना शामिल
-                  है, जो अयोध्या के सतत विकास के विभिन्न पहलुओं का मूल्यांकन
-                  करेगा, जिसमें पर्यावरण, सामाजिक, आर्थिक और शासन प्रशासन
-                  (गवर्नेंस) के कारक तत्त्व शामिल हो सकते हैं। इन सूचकांकों में
-                  वायु गुणवत्ता, हरित स्थल, ऊर्जा कुशलता, कचरा प्रबंधन, सामाजिक
-                  समावेश, आर्थिक समृद्धि और अन्य क्षेत्रों को शामिल किया जायेगा।
-                </b>
-              </Card>
+              <Row gutter={[8, 8]}>
+                <Col xs={24} md={12} lg={12}>
+                  <Card className={styles.cardContent}>
+                    <b>
+                      वैदिक सस्टेनेबल सिटी इंडेक्स (वैदिक सतत नगर सूचकांक) के
+                      तहत सामान्यत: ऐसे सूचकांक या मापदंडों को विकसित किया जाना
+                      शामिल है, जो अयोध्या के सतत विकास के विभिन्न पहलुओं का
+                      मूल्यांकन करेगा, जिसमें पर्यावरण, सामाजिक, आर्थिक और शासन
+                      प्रशासन (गवर्नेंस) के कारक तत्त्व शामिल हो सकते हैं। इन
+                      सूचकांकों में वायु गुणवत्ता, हरित स्थल, ऊर्जा कुशलता, कचरा
+                      प्रबंधन, सामाजिक समावेश, आर्थिक समृद्धि और अन्य क्षेत्रों
+                      को शामिल किया जायेगा।
+                    </b>
+                  </Card>
+                </Col>
+
+                <Col xs={24} md={12} lg={12}>
+                  <Card className={styles.cardContent}>
+                    <h2>
+                      <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
+                      80%
+                    </h2>
+                  </Card>
+                </Col>
+              </Row>
 
               <Button
                 size="large"

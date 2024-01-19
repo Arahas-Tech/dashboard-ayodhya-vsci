@@ -87,6 +87,7 @@ code {
   padding: 4px;
   border-radius: 0 6px 0 0;
   font-size: 10px;
+  z-index: 999;
 }
 
 @media (max-width: 768px) {

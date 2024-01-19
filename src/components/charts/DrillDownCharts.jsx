@@ -81,13 +81,13 @@ const RainfallChart = () => {
     animationEnabled: true,
     height: 300,
     axisX: {
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
     },
     axisY: {
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
       title: "Rainfall (in mm)",
       stripLines: [
@@ -101,14 +101,14 @@ const RainfallChart = () => {
     },
     toolTip: {
       shared: true,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
     },
     legend: {
       horizontalAlign: "bottom",
       verticalAlign: "bottom",
       cursor: "pointer",
-      fontFamily: "Poppins",
+      fontFamily: "Inter",
     },
 
     data: [

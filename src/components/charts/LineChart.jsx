@@ -34,15 +34,15 @@ function LineChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
     colorSet: "blueShades",
     axisX: {
       title: xAxisTitle === " " ? null : xAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
       labelMaxWidth: 70,
     },
     axisY: {
       title: yAxisTitle === " " ? null : yAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
       stripLines: [
         {
@@ -55,8 +55,8 @@ function LineChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
       ],
     },
     toolTip: {
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
     },
     legend: {
       verticalAlign: "top",
@@ -64,7 +64,7 @@ function LineChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,
-      fontFamily: "Poppins",
+      fontFamily: "Inter",
     },
     data: dataSeries,
   };

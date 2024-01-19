@@ -33,8 +33,8 @@ function DoughnutChart({ dataSeries, chartTitle, exportable }) {
     theme: "light2",
     colorSet: "blueShades",
     toolTip: {
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
     },
     legend: {
       horizontalAlign: "right",
@@ -42,7 +42,7 @@ function DoughnutChart({ dataSeries, chartTitle, exportable }) {
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,
-      fontFamily: "Poppins",
+      fontFamily: "Inter",
     },
     data: [
       {

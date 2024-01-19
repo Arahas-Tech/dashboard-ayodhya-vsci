@@ -34,20 +34,20 @@ function SingleColumnChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
     colorSet: "blueShades",
     axisX: {
       title: xAxisTitle === " " ? null : xAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
       labelMaxWidth: 70,
     },
     axisY: {
       title: yAxisTitle === " " ? null : yAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
     },
     toolTip: {
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
     },
     legend: {
       horizontalAlign: "right",
@@ -55,7 +55,7 @@ function SingleColumnChart({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) {
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,
-      fontFamily: "Poppins",
+      fontFamily: "Inter",
     },
     data: dataSeries,
   };

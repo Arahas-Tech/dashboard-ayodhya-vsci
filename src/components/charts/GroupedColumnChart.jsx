@@ -39,20 +39,20 @@ function GroupedColumnChart({
     colorSet: "blueShades",
     axisX: {
       title: xAxisTitle === " " ? null : xAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
     },
     axisY: {
       title: yAxisTitle === " " ? null : yAxisTitle,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
       titleFontSize: 12,
     },
     toolTip: {
       shared: true,
-      titleFontFamily: "Poppins",
-      labelFontFamily: "Poppins",
+      titleFontFamily: "Inter",
+      labelFontFamily: "Inter",
     },
     legend: {
       horizontalAlign: "right",
@@ -60,7 +60,7 @@ function GroupedColumnChart({
       reversed: true,
       cursor: "pointer",
       itemclick: toggleDataSeries,
-      fontFamily: "Poppins",
+      fontFamily: "Inter",
     },
     data: dataSeries,
   };

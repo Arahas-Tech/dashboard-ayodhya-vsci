@@ -34,9 +34,11 @@ const CommunityWellBeings = () => {
           setLoading(false);
           setAQIData(response.data.things);
           let thingsID = [];
+
           response.data?.things?.map((thing) =>
             thingsID.push({
               thingID: thing.id,
+              name: thing.name,
               from_time: thing.last_data_received_time - 3599,
               upto_time: thing.last_data_received_time,
             })
@@ -98,37 +100,24 @@ const CommunityWellBeings = () => {
 
   return (
     <>
-      <Row align="middle" justify="space-between" style={{ marginBottom: 5 }}>
-        <Col span={24}>
-          <Flex align="center" gap={5}>
-            <img
-              src={require("assets/sdgs/E-WEB-Goal-06.png")}
-              alt="06"
-              className="goals-image"
-            />
-            <img
-              src={require("assets/sdgs/E-WEB-Goal-11.png")}
-              alt="11"
-              className="goals-image"
-            />
+      <Flex align="center" gap={5}>
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-06.png")}
+          alt="06"
+          className="goals-image"
+        />
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-11.png")}
+          alt="11"
+          className="goals-image"
+        />
 
-            <img
-              src={require("assets/sdgs/E-WEB-Goal-15.png")}
-              alt="15"
-              className="goals-image"
-            />
-          </Flex>
-        </Col>
-
-        {/* <Col span={12}>
-          <Flex align="center" justify="end" gap={5}>
-            <b className="scores">Score:</b>
-            <Title level={5} style={{ margin: 0 }}>
-              0/7
-            </Title>
-          </Flex>
-        </Col> */}
-      </Row>
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-15.png")}
+          alt="15"
+          className="goals-image"
+        />
+      </Flex>
 
       <Tabs defaultActiveKey="AQI" type="card">
         <TabPane tab="AQI" key="AQI"></TabPane>
@@ -146,7 +135,7 @@ const CommunityWellBeings = () => {
               <AQIMap aqiData={aqiData} AQIs={AQIs} />
             </Col>
             <Col xs={24} md={24} lg={12}>
-              <AQI aqiData={aqiData} AQIs={AQIs} />
+              <AQI aqiData={aqiData} AQIs={AQIs} aqiIDs={aqiIDs} />
             </Col>
           </Row>
         </Flex>

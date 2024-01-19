@@ -5,10 +5,31 @@ import "leaflet/dist/leaflet.css";
 import ADABoundary from "../GeoJSON/ADA_Boundary.json";
 import WaterBodiesLayer from "../GeoJSON/WaterBodies.json";
 import "components/maps/Map.css";
-import MarkerClusterWaterBodies from "../utils/MarkerCluster";
 
 const WaterBodies = () => {
   const mapCenter = [26.7622, 82.1698];
+
+  const onEachFeature = (feature, layer) => {
+    const properties = feature.properties;
+
+    const popupContent = `<b>Name:</b> ${properties.Name}
+    <br /> 
+    <hr />
+    <b>Perimeter:</b> ${properties.Perimeter} 
+    <br />    <hr />
+    <b>Village:</b> ${properties.Village} 
+    <br/>     <hr />
+    <b>Tehsil:</b> ${properties.Tehsil}
+    <br/>    <hr />
+    <b>District:</b> ${properties.District}
+    <br/>     <hr />
+    <b>Type of Water Body:</b> ${properties.Type_Water}
+    <br/>     <hr />
+    <b>Area (in ha):</b> ${properties.Area_in_Ha}
+    <br/>`;
+
+    layer.bindPopup(popupContent);
+  };
 
   let markers;
 
@@ -43,9 +64,12 @@ const WaterBodies = () => {
     >
       <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
-      <MarkerClusterWaterBodies markers={markers} addMarkers={addMarkers} />
-
       <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
+      <GeoJSON
+        data={WaterBodiesLayer}
+        style={{ color: "blue" }}
+        onEachFeature={onEachFeature}
+      />
     </MapContainer>
   );
 };

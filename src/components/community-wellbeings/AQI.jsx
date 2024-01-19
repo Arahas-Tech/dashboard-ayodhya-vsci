@@ -1,4 +1,4 @@
-import { Card, Flex, Progress, Segmented } from "antd";
+import { Card, Col, Flex, Progress, Row, Segmented, Select } from "antd";
 
 import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
@@ -10,12 +10,17 @@ import {
 } from "constants/aqiPastData";
 import LineChart from "components/charts/LineChart";
 
-// import GaugeComponent from "react-gauge-component";
+import GaugeComponent from "react-gauge-component";
 import ValueCard from "./aqi/ValueCard";
+import axios from "axios";
 
 const { Text } = Typography;
 
-function AQI({ AQIs, aqiData }) {
+function AQI({ AQIs, aqiData, aqiIDs }) {
+  const [selectedLocation, setSelectedLocation] = useState();
+  const [aqiYesterdayData, setAQIYesterdayData] = useState();
+  // const [yesterdayAQIs, setYesterdayAQIs] = useState();
+
   const [value, setValue] = useState("Current/Live");
 
   const [ellipsis] = useState(true);
@@ -89,10 +94,70 @@ function AQI({ AQIs, aqiData }) {
     },
   ];
 
+  const handleChange = (value) => {
+    setSelectedLocation(value);
+  };
+
+  const getAQI = async (locationID, upto_time) => {
+    try {
+      const response = await axios.post(
+        "https://app.aurassure.com/-/api/iot-platform/v1.1.0/clients/10565/applications/16/things/data",
+        {
+          data_type: "aggregate",
+          aggregation_period: 3600,
+          parameters: ["aqi"],
+          parameter_attributes: ["value", "avg", "max", "min"],
+          things: [locationID],
+          from_time: upto_time - 86400,
+          upto_time: upto_time,
+        },
+        {
+          headers: {
+            "Access-Id": "WYDAeaT0kA7kKVyg",
+            "Access-Key":
+              "H0RkamVKJ2jiGda9tx2i20kykwCGkRhn2P3bXwDgxP8dAKxLp1CM65DYKg0oYCV2",
+          },
+        }
+      );
+      let modifiedData = [];
+      response?.data?.data?.map((data) =>
+        modifiedData.push(data.parameter_values?.aqi?.value)
+      );
+
+      var total = 0;
+      var count = 0;
+      modifiedData.each(function (index, value) {
+        total += value;
+        count++;
+      });
+
+      setAQIYesterdayData({
+        max: Math.max(...modifiedData),
+        min: Math.min(...modifiedData),
+      });
+    } catch (error) {
+      return 0;
+    }
+  };
+
   useEffect(() => {
     try {
+      if (selectedLocation !== "Select Location") {
+        getAQI(
+          selectedLocation,
+          aqiIDs?.find((item) => {
+            console.log(item);
+            return selectedLocation === item.name ? item.upto_time : [];
+          })?.upto_time
+        );
+      }
     } catch (error) {}
-  }, [value]);
+  }, [selectedLocation, aqiIDs]);
+
+  const aqiLocationOptions = aqiIDs?.map((item) => ({
+    label: item.name,
+    value: item.thingID,
+  }));
 
   return (
     <>
@@ -172,6 +237,51 @@ function AQI({ AQIs, aqiData }) {
               </>
             );
           })}
+
+        {value === "Yesterday" && (
+          <>
+            <Select
+              defaultValue="Select Location"
+              onChange={handleChange}
+              options={aqiLocationOptions}
+            />
+
+            <Row align="middle" gutter={[8, 8]}>
+              <Col span={6}>
+                <b>Min:</b> {aqiYesterdayData?.min}
+              </Col>
+              <Col span={12}>
+                <GaugeComponent
+                  className={styles.aqiBar}
+                  type="semicircle"
+                  arc={{
+                    colorArray: ["#00b050", "#FF2121"],
+                    padding: 0.02,
+                    subArcs: [
+                      { limit: 50 },
+                      { limit: 100 },
+                      { limit: 200 },
+                      { limit: 300 },
+                      { limit: 400 },
+                      { limit: 500 },
+                      { limit: 900 },
+                    ],
+                  }}
+                  pointer={{ type: "blob", animationDelay: 0 }}
+                  minValue={0}
+                  maxValue={900}
+                  value={aqiYesterdayData?.min ?? 0}
+                />
+              </Col>
+              <Col
+                span={6}
+                style={{ alignItems: "flex-end", textAlign: "right" }}
+              >
+                <b>Max:</b> {aqiYesterdayData?.max}
+              </Col>
+            </Row>
+          </>
+        )}
 
         {value === "Past Data" && (
           <Card title="Past AQI Data">

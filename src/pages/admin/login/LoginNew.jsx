@@ -183,7 +183,7 @@ const LoginNew = () => {
                   <Card className={styles.cardContent}>
                     <h2 style={{ margin: 0 }}>
                       <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
-                      80
+                      77
                     </h2>
                   </Card>
                 </Col>

@@ -32,7 +32,7 @@ function HomePageTabs() {
                 }
                 key={item.label}
               >
-                <Badge.Ribbon text="VSCI: 80">
+                <Badge.Ribbon text="VSCI: 77">
                   <Card>{item.children}</Card>
                 </Badge.Ribbon>
               </TabPane>

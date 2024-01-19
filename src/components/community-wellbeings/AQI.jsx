@@ -124,12 +124,12 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
         modifiedData.push(data.parameter_values?.aqi?.value)
       );
 
-      var total = 0;
-      var count = 0;
-      modifiedData.each(function (index, value) {
-        total += value;
-        count++;
-      });
+      // var total = 0;
+      // var count = 0;
+      // modifiedData.each(function (index, value) {
+      //   total += value;
+      //   count++;
+      // });
 
       setAQIYesterdayData({
         max: Math.max(...modifiedData),
@@ -146,7 +146,6 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
         getAQI(
           selectedLocation,
           aqiIDs?.find((item) => {
-            console.log(item);
             return selectedLocation === item.name ? item.upto_time : [];
           })?.upto_time
         );

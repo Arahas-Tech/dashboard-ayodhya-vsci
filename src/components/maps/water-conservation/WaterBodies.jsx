@@ -62,7 +62,7 @@ const WaterBodies = () => {
       easeLinearity={0.35}
       style={{ width: "100%", height: "61vh" }}
     >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+      <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
 
       <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
       <GeoJSON

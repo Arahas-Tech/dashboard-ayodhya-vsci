@@ -5,6 +5,19 @@ import WaterConservation from "pages/dashboard/water-conservation/WaterConservat
 
 export const kpiItemsHome = [
   {
+    label: "Green Spaces and Biodiversity",
+    path: "/dashboard/green-spaces-and-open-spaces",
+    icon: (
+      <img
+        style={{ height: 20, width: 20 }}
+        src={require("assets/svg/Green Spaces.svg").default}
+        alt="Green Spaces and Biodiversity"
+      />
+    ),
+    children: <GreenAndOpenSpaces />,
+  },
+
+  {
     label: "Water Conservation",
     path: "/dashboard/water-conservation",
     icon: (
@@ -52,18 +65,6 @@ export const kpiItemsHome = [
   //   ),
   //   children: <WaterConservation />,
   // },
-  {
-    label: "Green Spaces and Biodiversity",
-    path: "/dashboard/green-spaces-and-open-spaces",
-    icon: (
-      <img
-        style={{ height: 20, width: 20 }}
-        src={require("assets/svg/Green Spaces.svg").default}
-        alt="Green Spaces and Biodiversity"
-      />
-    ),
-    children: <GreenAndOpenSpaces />,
-  },
 
   // {
   //   label: "Cultural Heritage Conservation",

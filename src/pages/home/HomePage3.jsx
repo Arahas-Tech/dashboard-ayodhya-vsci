@@ -21,7 +21,7 @@ function HomePageTabs() {
           <img src={ArahasLogo} alt="arahas-logo" height="40" />
         </Header>
         <Content className={styles.container}>
-          <Tabs defaultActiveKey="Water Conservation" type="card">
+          <Tabs defaultActiveKey="Green Spaces and Biodiversity" type="card">
             {kpiItemsHome.map((item) => (
               <TabPane
                 tab={

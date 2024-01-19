@@ -48,6 +48,13 @@ const AQIMap = ({ AQIs, aqiData }) => {
 
   return (
     <MapContainer
+      attributionControl={false}
+      zoomControl={true}
+      doubleClickZoom={true}
+      scrollWheelZoom={true}
+      dragging={true}
+      animate={true}
+      easeLinearity={0.35}
       center={mapCenter}
       zoom={11}
       minZoom={10}

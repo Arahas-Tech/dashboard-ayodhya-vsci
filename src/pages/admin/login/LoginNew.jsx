@@ -127,8 +127,8 @@ const LoginNew = () => {
     height: isTabletOrMobile ? "max-content" : 300,
   };
 
-  const handleClick = (e) => {
-    navigate("/dashboard");
+  const handleClick = () => {
+    navigate("/dashboard", { replace: true });
   };
 
   const handleTranslate = () => {

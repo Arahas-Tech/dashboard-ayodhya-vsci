@@ -5,7 +5,7 @@ import axios from "axios";
 
 import AQI from "components/community-wellbeings/AQI";
 import AQIMap from "components/maps/community-wellbeings/AQIMap";
-import { Col, Flex, Row, Spin, Tabs } from "antd";
+import { Col, Flex, Row, Skeleton, Spin, Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
@@ -126,10 +126,7 @@ const CommunityWellBeings = () => {
       </Tabs>
 
       {loading ? (
-        <div className={styles.loader}>
-          <Spin />
-          Loading Data...
-        </div>
+        <Skeleton />
       ) : (
         <Flex vertical gap={16}>
           <Row gutter={[8, 8]}>

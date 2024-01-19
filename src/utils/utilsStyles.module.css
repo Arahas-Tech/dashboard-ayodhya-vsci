@@ -1,0 +1,20 @@
+/* Disclaimer */
+
+.disclaimer {
+  width: max-content;
+  height: max-content;
+  right: 0;
+  bottom: 0;
+  font-size: 12px !important;
+  border-radius: 0 6px 0 0 !important;
+}
+
+.disclaimerIcon {
+  font-size: 14px !important;
+}
+
+.disclaimerText {
+  font-size: 6px !important;
+  text-align: center;
+  text-transform: capitalize;
+}

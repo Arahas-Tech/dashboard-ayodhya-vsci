@@ -172,7 +172,7 @@ const GreenAndOpenSpaces = () => {
           <Row gutter={[16, 16]}>
             <Col md={24} lg={12}>
               <SingleColumnChart
-                chartTitle="As on January 2024*"
+                chartTitle="As of February 2023*"
                 dataSeries={landUseDataSeries}
                 xAxisTitle=""
                 yAxisTitle="in hectares"
@@ -183,7 +183,7 @@ const GreenAndOpenSpaces = () => {
 
             <Col md={24} lg={12}>
               <PieChart
-                chartTitle="As on January 2024* (%)"
+                chartTitle="As of February 2023* (%)"
                 dataSeries={landuseDataPercentage.map(({ label, y }) => ({
                   label,
                   y,

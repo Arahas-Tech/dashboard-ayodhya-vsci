@@ -53,11 +53,20 @@ code {
 
 .ant-card-body {
   display: flex;
-
   flex-direction: column;
   gap: 1rem;
   height: 100%;
   width: 100%;
+}
+
+.ant-float-btn-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  gap: 0.2rem;
+  font-size: 12px !important;
+  min-height: max-content !important;
 }
 
 .goals-image {

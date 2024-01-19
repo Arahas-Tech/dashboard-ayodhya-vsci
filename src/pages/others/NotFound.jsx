@@ -17,7 +17,7 @@ function NotFound() {
           type="primary"
           size="large"
           icon={<BackwardOutlined />}
-          onClick={() => navigation("/home")}
+          onClick={() => navigation("/")}
         >
           Go Back
         </Button>

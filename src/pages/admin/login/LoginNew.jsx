@@ -20,6 +20,7 @@ import VC from "assets/images/VC.png";
 
 import SpeechCard from "components/homepage/SpeechCard";
 import Icon, { ArrowRightOutlined } from "@ant-design/icons";
+import Disclaimer from "utils/Disclaimer";
 
 const { Header, Content } = Layout;
 
@@ -115,7 +116,7 @@ const LoginNew = () => {
   ];
 
   const handleClick = (e) => {
-    navigate("/home");
+    navigate("/dashboard");
   };
 
   const handleTranslate = () => {
@@ -280,6 +281,8 @@ const LoginNew = () => {
             />
           </Content>
         )}
+
+        <Disclaimer language={language} />
       </Layout>
     </>
   );

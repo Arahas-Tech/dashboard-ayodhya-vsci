@@ -146,7 +146,6 @@ const LoginNew = () => {
           </h2>
           <img src={ArahasLogo} alt="arahas-logo" height="40" />
         </Header>
-
         {language && (
           <Content className={styles.container}>
             <Carousel dots={false} autoplay effect="fade">
@@ -231,7 +230,6 @@ const LoginNew = () => {
             />
           </Content>
         )}
-
         {!language && (
           <Content className={styles.container}>
             <Carousel dots={false} autoplay effect="fade">
@@ -264,7 +262,7 @@ const LoginNew = () => {
             <Flex vertical align="center" gap={16}>
               <Row gutter={[8, 8]}>
                 <Col xs={24} md={12} lg={12}>
-                  <Card className={styles.cardContent}>
+                  <Card bodyStyle={scoreCardStyle}>
                     <b>
                       वैदिक सस्टेनेबल सिटी इंडेक्स (वैदिक सतत नगर सूचकांक) के
                       तहत सामान्यत: ऐसे सूचकांक या मापदंडों को विकसित किया जाना
@@ -279,11 +277,23 @@ const LoginNew = () => {
                 </Col>
 
                 <Col xs={24} md={12} lg={12}>
-                  <Card className={styles.cardContent}>
+                  <Card bodyStyle={scoreCardStyle}>
                     <h2>
                       <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
                       77
                     </h2>
+
+                    <p>
+                      "The Ayodhya Vedic City Sustainability Index (beta
+                      version) offers a unique perspective on sustainable urban
+                      living. This index is anchored in the principles of
+                      Sustainable Cities, with a special emphasis on United
+                      Nations SDG 11.6. It establishes a foundational benchmark
+                      for tracking progress and guiding future improvements. Our
+                      quarterly updates will focus on reducing the environmental
+                      footprint per capita in Ayodhya Dham, ensuring a greener,
+                      more sustainable future."
+                    </p>
                   </Card>
                 </Col>
               </Row>
@@ -305,8 +315,18 @@ const LoginNew = () => {
             />
           </Content>
         )}
-
         <Disclaimer language={language} />
+
+        <div className="partnerLogo">
+          <Flex align="center" gap={5}>
+            <b>Partner: </b>{" "}
+            <img
+              height="30"
+              src={require("assets/Logimetrix_Logo_19012024.png")}
+              alt="Logimetrix"
+            />
+          </Flex>
+        </div>
       </Layout>
     </>
   );

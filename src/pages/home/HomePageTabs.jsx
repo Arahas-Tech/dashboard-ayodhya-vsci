@@ -58,6 +58,17 @@ function HomePageTabs() {
           type="primary"
           onClick={handleNavigateHome}
         />
+
+        <div className="partnerLogo">
+          <Flex align="center" gap={5}>
+            <b>Partner: </b>{" "}
+            <img
+              height="30"
+              src={require("assets/Logimetrix_Logo_19012024.png")}
+              alt="Logimetrix"
+            />
+          </Flex>
+        </div>
       </Layout>
     </>
   );

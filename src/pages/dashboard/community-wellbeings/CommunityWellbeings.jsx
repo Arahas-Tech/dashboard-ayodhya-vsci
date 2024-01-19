@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "./styles.module.css";
 
 import axios from "axios";
 
 import AQI from "components/community-wellbeings/AQI";
 import AQIMap from "components/maps/community-wellbeings/AQIMap";
-import { Col, Flex, Row, Skeleton, Spin, Tabs } from "antd";
+import { Col, Flex, Row, Skeleton, Tabs } from "antd";
 
 const { TabPane } = Tabs;
 

@@ -1,25 +1,38 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 
 import "components/maps/Map.css";
-import { allToilets } from "constants/Waste-Management/AllToilets";
 
 import ADABoundary from "../GeoJSON/ADA_Boundary.json";
+import MarkerClusterToilets from "../utils/MarkerCluster";
+import { allToilets } from "constants/Waste-Management/AllToilets";
 
 const AllToilets = () => {
-  const mapCenter = [26.7922, 82.1998];
-  let customMarker = L.icon({
-    iconUrl: require("assets/ADA2023.png"),
-    iconSize: [32, 32],
-    iconAnchor: [32, 64],
-  });
+  const mapCenter = [26.7622, 82.1698];
+
+  let markers;
+
+  const addMarkers = () => {
+    markers = [];
+
+    allToilets?.map((feature) =>
+      markers.push({
+        position: {
+          latitude: feature.latitude,
+          longitude: feature.longitude,
+        },
+        properties: { ...feature },
+      })
+    );
+  };
+
+  addMarkers();
 
   return (
     <MapContainer
       center={mapCenter}
-      zoom={15}
+      zoom={12}
       attributionControl={false}
       zoomControl={true}
       doubleClickZoom={true}
@@ -27,38 +40,13 @@ const AllToilets = () => {
       dragging={true}
       animate={true}
       easeLinearity={0.35}
-      style={{
-        width: "100%",
-        height: "80vh",
-        borderRadius: 5,
-        boxShadow: `rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px`,
-      }}
+      style={{ width: "100%", height: "61vh" }}
     >
       <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
 
-      <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
+      <MarkerClusterToilets markers={markers} addMarkers={addMarkers} />
 
-      {allToilets.map((item) => (
-        <Marker position={[item.latitude, item.longitude]} icon={customMarker}>
-          <Popup>
-            <div>
-              <div>ULB Name {item.ULB}</div>
-              <div>Toilet ID: {item.toilet_id}</div>
-              <div>
-                Google Status: {item.google_status === 1 ? "Yes" : "NO"}
-              </div>
-              <div>Owner Authority: {item.owner_authority}</div>
-              <div>
-                Fees Applicable: {item.fees_applicable === 1 ? "Yes" : "NO"}
-              </div>
-              <div>Cost: {item.cost}</div>
-              <div>Google Status: {item.google_status}</div>
-              <div>Google Status: {item.google_status}</div>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <GeoJSON data={ADABoundary} style={{ color: "#fd9d24" }} />
     </MapContainer>
   );
 };

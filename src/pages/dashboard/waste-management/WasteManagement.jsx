@@ -14,16 +14,6 @@ const WasteManagement = () => {
       key: "id",
     },
     {
-      title: "Toilet ID",
-      dataIndex: "toilet_id",
-      key: "toilet_id",
-    },
-    {
-      title: "External Toilet ID",
-      dataIndex: "external_toilet_id",
-      key: "external_toilet_id",
-    },
-    {
       title: "State",
       dataIndex: "State",
       key: "State",
@@ -49,29 +39,9 @@ const WasteManagement = () => {
       key: "pincode",
     },
     {
-      title: "Category ID",
-      dataIndex: "category_id",
-      key: "category_id",
-    },
-    {
       title: "Owner Authority",
       dataIndex: "owner_authority",
       key: "owner_authority",
-    },
-    {
-      title: "Owner Authority Other",
-      dataIndex: "owner_authority_other",
-      key: "owner_authority_other",
-    },
-    {
-      title: "Maintenance Authority",
-      dataIndex: "maintainance_authority",
-      key: "maintainance_authority",
-    },
-    {
-      title: "Maintenance Authority Other",
-      dataIndex: "maintainance_authority_other",
-      key: "maintainance_authority_other",
     },
     {
       title: "Fees Applicable",
@@ -84,49 +54,14 @@ const WasteManagement = () => {
       key: "cost",
     },
     {
-      title: "Latitude",
-      dataIndex: "latitude",
-      key: "latitude",
-    },
-    {
-      title: "Longitude",
-      dataIndex: "longitude",
-      key: "longitude",
-    },
-    {
-      title: "Deleted At",
-      dataIndex: "deletedAt",
-      key: "deletedAt",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
-    },
-    {
-      title: "State QC Status",
-      dataIndex: "state_qc_status",
-      key: "state_qc_status",
-    },
-    {
       title: "Google Status",
       dataIndex: "google_status",
       key: "google_status",
     },
     {
-      title: "Updated At",
-      dataIndex: "updatedAt",
-      key: "updatedAt",
-    },
-    {
       title: "Located Near By",
       dataIndex: "located_near_by",
       key: "located_near_by",
-    },
-    {
-      title: "Funding Source",
-      dataIndex: "funding_source",
-      key: "funding_source",
     },
     {
       title: "Is Septic Tank",
@@ -179,7 +114,7 @@ const WasteManagement = () => {
       key: "is_functional",
     },
     {
-      title: "Is Differently Abled Friendly",
+      title: "Is Differently-Abled Friendly",
       dataIndex: "is_differently_abled_friendly",
       key: "is_differently_abled_friendly",
     },
@@ -187,11 +122,6 @@ const WasteManagement = () => {
       title: "Is Clean and Usable",
       dataIndex: "is_clean_and_usable",
       key: "is_clean_and_usable",
-    },
-    {
-      title: "Seat ID",
-      dataIndex: "seat_id",
-      key: "seat_id",
     },
   ];
 
@@ -206,75 +136,83 @@ const WasteManagement = () => {
       </Flex>
 
       <Row gutter={[8, 8]}>
-        <Col xs={24} md={12} lg={8}>
-          <div className={styles.kpiCard}>
-            <span>6,72,861</span>
-            <div>Population </div>
-            <Icon
-              component={() => (
-                <img
-                  src={require("assets/svg/Population.svg").default}
-                  alt="Population"
-                  className={styles.icon}
-                />
-              )}
-            />
-          </div>
+        <Col xs={24} md={24} lg={12}>
+          <Badge.Ribbon placement="start" text="SBM Toilets (Location)">
+            <Card>
+              <AllToilets />
+            </Card>
+          </Badge.Ribbon>
         </Col>
 
-        <Col xs={24} md={12} lg={8}>
-          <div className={styles.kpiCard}>
-            <span>140 Tons</span>
-            <div>
-              Total Daily <br /> Generated Waste
-            </div>
-            <Icon
-              component={() => (
-                <img
-                  src={require("assets/svg/Waste Generation.svg").default}
-                  alt="Waste Generation"
-                  className={styles.icon}
-                />
-              )}
+        <Col xs={24} md={24} lg={12}>
+          <Card className="tab-cards">
+            <Row gutter={[8, 8]}>
+              <Col xs={24} md={12} lg={8}>
+                <div className={styles.kpiCard}>
+                  <span>6,72,861</span>
+                  <div>Population </div>
+                  <Icon
+                    component={() => (
+                      <img
+                        src={require("assets/svg/Population.svg").default}
+                        alt="Population"
+                        className={styles.icon}
+                      />
+                    )}
+                  />
+                </div>
+              </Col>
+
+              <Col xs={24} md={12} lg={8}>
+                <div className={styles.kpiCard}>
+                  <span>140 Tons</span>
+                  <div>
+                    Total Daily <br /> Generated Waste
+                  </div>
+                  <Icon
+                    component={() => (
+                      <img
+                        src={require("assets/svg/Waste Generation.svg").default}
+                        alt="Waste Generation"
+                        className={styles.icon}
+                      />
+                    )}
+                  />
+                </div>
+              </Col>
+
+              <Col xs={24} md={12} lg={8}>
+                <div className={styles.kpiCard}>
+                  <span>200gm</span>
+                  <div>
+                    Avg Waste <br /> Generation/person/day
+                  </div>
+                  <Icon
+                    component={() => (
+                      <img
+                        src={require("assets/svg/Waste PPD.svg").default}
+                        alt="Waste Generation PPD"
+                        className={styles.icon}
+                      />
+                    )}
+                  />
+                </div>
+              </Col>
+            </Row>
+            <h2 className={styles.heading}>SBM Toilets-Ayodhya</h2>
+            <Table
+              bordered
+              dataSource={allToilets}
+              columns={columns}
+              scroll={{
+                x: 10000,
+                y: "50vh",
+              }}
+              style={{ width: "100%" }}
             />
-          </div>
-        </Col>
-        <Col xs={24} md={12} lg={8}>
-          <div className={styles.kpiCard}>
-            <span>200gm</span>
-            <div>
-              Avg Waste <br /> Generation/person/day
-            </div>
-            <Icon
-              component={() => (
-                <img
-                  src={require("assets/svg/Waste PPD.svg").default}
-                  alt="Waste Generation PPD"
-                  className={styles.icon}
-                />
-              )}
-            />
-          </div>
+          </Card>
         </Col>
       </Row>
-
-      <h2 className={styles.heading}> All SBM Toilets in Ayodhya</h2>
-      <Table
-        bordered
-        dataSource={allToilets}
-        columns={columns}
-        scroll={{
-          x: 10000,
-          y: "100vh",
-        }}
-        style={{ width: "100%" }}
-      />
-
-      <Badge.Ribbon placement="start" text="SBM Toilets (Location)">
-        <Card>
-          <AllToilets />
-        </Card>
-      </Badge.Ribbon>
     </>
   );
 };

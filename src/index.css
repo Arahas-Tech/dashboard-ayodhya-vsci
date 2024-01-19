@@ -46,7 +46,7 @@ code {
 }
 
 .tab-cards {
-  height: 60vh !important;
+  height: 60vh;
   overflow-y: auto;
   width: 100%;
 }
@@ -55,8 +55,6 @@ code {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100%;
-  width: 100%;
 }
 
 .ant-float-btn-content {

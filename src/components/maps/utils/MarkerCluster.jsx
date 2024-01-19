@@ -12,7 +12,7 @@ let customMarker = L.icon({
   iconAnchor: [32, 64],
 });
 
-const MarkerClusterWaterBodies = ({ markers, addMarkers }) => {
+const MarkerClusterToilets = ({ markers, addMarkers }) => {
   const map = useMap();
 
   useEffect(() => {
@@ -25,21 +25,20 @@ const MarkerClusterWaterBodies = ({ markers, addMarkers }) => {
         }
       );
 
-      marker.bindPopup(`<b>Name:</b> ${properties.Name}
-      <br /> 
-      <b>Perimeter:</b> ${properties.Perimeter} 
-      <br />
-      <b>Village:</b> ${properties.Village} 
-      <br/> 
-      <b>Tehsil:</b> ${properties.Tehsil}
-      <br/>
-      <b>District:</b> ${properties.District}
-      <br/> 
-      <b>Type of Water Body:</b> ${properties["Type of Water Body"]}
-      <br/> 
-      <b>Area (in ha):</b> ${properties["Area (in ha)"]}
-      <br/> 
-      <b>Gata Number:</b> ${properties.Gata_Number}`);
+      marker.bindPopup(`<div>
+      <div><b>ULB Name:</b> ${properties.ULB}</div>
+      <div>
+        <b>Google Status:</b> ${properties.google_status === 1 ? "Yes" : "NO"}
+      </div>
+      <div><b>Owner Authority:</b> ${properties.owner_authority}</div>
+      <div>
+      <b>Fees Applicable:</b> ${properties.fees_applicable === 1 ? "Yes" : "NO"}
+      </div>
+      <div><b>Cost:</b> ${properties.cost}</div>
+      <div><b>Google Status:</b>  ${
+        properties.google_status === 1 ? "Yes" : "NO"
+      }</div>
+    </div>`);
 
       marker?.addTo(markerClusters);
     });
@@ -59,22 +58,20 @@ const MarkerClusterWaterBodies = ({ markers, addMarkers }) => {
         }
       );
 
-      markerToAdd.bindPopup(`<b>Name:</b> ${properties.Name}
-      <br /> 
-      <hr />
-      <b>Perimeter:</b> ${properties.Perimeter} 
-      <br />    <hr />
-      <b>Village:</b> ${properties.Village} 
-      <br/>     <hr />
-      <b>Tehsil:</b> ${properties.Tehsil}
-      <br/>    <hr />
-      <b>District:</b> ${properties.District}
-      <br/>     <hr />
-      <b>Type of Water Body:</b> ${properties["Type of Water Body"]}
-      <br/>     <hr />
-      <b>Area (in ha):</b> ${properties["Area (in ha)"]}
-      <br/>     <hr />
-      <b>Gata Number:</b> ${properties.Gata_Number}`);
+      markerToAdd.bindPopup(`<div>
+      <div><b>ULB Name:</b> ${properties.ULB}</div>
+      <div>
+        <b>Google Status:</b> ${properties.google_status === 1 ? "Yes" : "NO"}
+      </div>
+      <div><b>Owner Authority:</b> ${properties.owner_authority}</div>
+      <div>
+      <b>Fees Applicable:</b> ${properties.fees_applicable === 1 ? "Yes" : "NO"}
+      </div>
+      <div><b>Cost:</b> ${properties.cost}</div>
+      <div><b>Google Status:</b>  ${
+        properties.google_status === 1 ? "Yes" : "NO"
+      }</div>
+    </div>`);
 
       if (markerToAdd !== undefined) {
         markersToAdd?.push(markerToAdd);
@@ -87,4 +84,4 @@ const MarkerClusterWaterBodies = ({ markers, addMarkers }) => {
   return null;
 };
 
-export default MarkerClusterWaterBodies;
+export default MarkerClusterToilets;

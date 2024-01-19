@@ -58,27 +58,6 @@ const RainfallChart = () => {
     return monthlyData;
   }
 
-  //   function getDailyData(month, dailyData) {
-  //     const dailyRainfallData = [];
-
-  //     const groupedData = RainfallData[0]?.monthWise.reduce((acc, item) => {
-  //       console.log(acc, item);
-  //       Object.keys(item).forEach((key) => {
-  //         if (key !== "Day") {
-  //           if (!acc[key]) {
-  //             acc[key] = [];
-  //           }
-  //           acc[key].push({ Day: item.Day, value: item[key] });
-  //         }
-  //       });
-  //       return acc;
-  //     }, {});
-
-  //     dailyRainfallData.push(groupedData);
-
-  //     return dailyRainfallData;
-  //   }
-
   useEffect(() => {
     setChartData(getYearlyData());
     // eslint-disable-next-line react-hooks/exhaustive-deps

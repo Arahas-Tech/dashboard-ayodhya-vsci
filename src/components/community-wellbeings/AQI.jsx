@@ -113,64 +113,90 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
 
   const getAQI = async (locationID, upto_time) => {
     try {
-      const response = await axios.post(
-        "https://app.aurassure.com/-/api/iot-platform/v1.1.0/clients/10565/applications/16/things/data",
-        {
-          data_type: "aggregate",
-          aggregation_period: 3600,
-          parameters: ["aqi"],
-          parameter_attributes: ["value", "avg", "max", "min"],
-          things: [locationID],
-          from_time: upto_time - 86400,
-          upto_time: upto_time,
-        },
-        {
-          headers: {
-            "Access-Id": "WYDAeaT0kA7kKVyg",
-            "Access-Key":
-              "H0RkamVKJ2jiGda9tx2i20kykwCGkRhn2P3bXwDgxP8dAKxLp1CM65DYKg0oYCV2",
+      let response = {};
+
+      if (selectedLocation && value === "Yesterday") {
+        response = await axios.post(
+          "https://app.aurassure.com/-/api/iot-platform/v1.1.0/clients/10565/applications/16/things/data",
+          {
+            data_type: "aggregate",
+            aggregation_period: 3600,
+            parameters: ["aqi"],
+            parameter_attributes: ["value", "avg", "max", "min"],
+            things: [locationID],
+            from_time: upto_time - 86400,
+            upto_time: upto_time,
           },
-        }
-      );
-      let modifiedData = [];
-      let chartData = [];
-      response?.data?.data?.map((data) =>
-        modifiedData.push(data.parameter_values?.aqi?.value)
-      );
+          {
+            headers: {
+              "Access-Id": "WYDAeaT0kA7kKVyg",
+              "Access-Key":
+                "H0RkamVKJ2jiGda9tx2i20kykwCGkRhn2P3bXwDgxP8dAKxLp1CM65DYKg0oYCV2",
+            },
+          }
+        );
+      }
 
-      console.log(response?.data?.data);
+      if (selectedLocation && value === "Weekly") {
+        response = await axios.post(
+          "https://app.aurassure.com/-/api/iot-platform/v1.1.0/clients/10565/applications/16/things/data",
+          {
+            data_type: "aggregate",
+            aggregation_period: 3600,
+            parameters: ["aqi"],
+            parameter_attributes: ["value", "avg", "max", "min"],
+            things: [locationID],
+            from_time: upto_time - 604800,
+            upto_time: upto_time,
+          },
+          {
+            headers: {
+              "Access-Id": "WYDAeaT0kA7kKVyg",
+              "Access-Key":
+                "H0RkamVKJ2jiGda9tx2i20kykwCGkRhn2P3bXwDgxP8dAKxLp1CM65DYKg0oYCV2",
+            },
+          }
+        );
+      }
 
-      response?.data?.data?.map((data) =>
-        chartData.push({
-          label: new Date(data.time * 1000).toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "2-digit",
+      if (selectedLocation) {
+        let modifiedData = [];
+        let chartData = [];
+        response?.data?.data?.map((data) =>
+          modifiedData.push(data.parameter_values?.aqi?.value)
+        );
 
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-          }),
-          y: data.parameter_values?.aqi?.value,
-        })
-      );
+        response?.data?.data?.map((data) =>
+          chartData.push({
+            label: new Date(data.time * 1000).toLocaleDateString("en-IN", {
+              day: "2-digit",
+              month: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            }),
+            y: data.parameter_values?.aqi?.value,
+          })
+        );
 
-      setChartData([
-        {
-          type: "column",
-          dataPoints: chartData,
-        },
-      ]);
+        setChartData([
+          {
+            type: "column",
+            dataPoints: chartData,
+          },
+        ]);
 
-      const totalSum = modifiedData.reduce((acc, curr) => {
-        acc += curr;
-        return acc;
-      });
+        const totalSum = modifiedData.reduce((acc, curr) => {
+          acc += curr;
+          return acc;
+        });
 
-      setAQIYesterdayData({
-        max: Math.max(...modifiedData),
-        min: Math.min(...modifiedData),
-        avg: (totalSum / modifiedData.length).toFixed(0),
-      });
+        setAQIYesterdayData({
+          max: Math.max(...modifiedData),
+          min: Math.min(...modifiedData),
+          avg: (totalSum / modifiedData.length).toFixed(0),
+        });
+      }
     } catch (error) {
       return 0;
     }
@@ -178,7 +204,7 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
 
   useEffect(() => {
     try {
-      if (selectedLocation && selectedLocation !== "Select Location") {
+      if (selectedLocation) {
         getAQI(
           selectedLocation,
           aqiIDs?.find((item) => {
@@ -198,10 +224,13 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
     <>
       <Card className="tab-cards" style={{ height: "73vh" }}>
         <Segmented
-          options={["Current/Live", "Yesterday", "Past Data"]}
+          options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
           block
           value={value}
-          onChange={setValue}
+          onChange={(value) => {
+            setSelectedLocation(null);
+            setValue(value);
+          }}
         />
 
         {value === "Current/Live" &&
@@ -280,6 +309,67 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
           })}
 
         {value === "Yesterday" && (
+          <>
+            <Select
+              defaultValue="Select Location"
+              onChange={handleChange}
+              options={aqiLocationOptions}
+            />
+
+            {selectedLocation && (
+              <>
+                <Card
+                  translate="yes"
+                  title={
+                    <Flex align="center" justify="space-between">
+                      <div>
+                        <b>Min:</b> {aqiYesterdayData?.min}
+                      </div>
+                      <div>
+                        <b>Max:</b> {aqiYesterdayData?.max}
+                      </div>
+                    </Flex>
+                  }
+                >
+                  <GaugeComponent
+                    className="gauge-sheet"
+                    type="semicircle"
+                    arc={{
+                      colorArray: ["#00b050", "#FF2121"],
+                      padding: 0.02,
+                      subArcs: [
+                        { limit: 50 },
+                        { limit: 100 },
+                        { limit: 200 },
+                        { limit: 300 },
+                        { limit: 400 },
+                        { limit: 500 },
+                        { limit: 900 },
+                      ],
+                    }}
+                    labels={{
+                      valueLabel: {
+                        formatTextValue: (value) => "AQI:" + value,
+                        matchColorWithArc: true,
+                        style: {
+                          textShadow: "0",
+                        },
+                      },
+                    }}
+                    pointer={{ type: "blob", animationDelay: 0, width: 15 }}
+                    minValue={0}
+                    maxValue={900}
+                    value={aqiYesterdayData?.avg ?? 0}
+                  />
+                </Card>
+
+                <SingleColumnChart dataSeries={chartData} />
+              </>
+            )}
+          </>
+        )}
+
+        {value === "Weekly" && (
           <>
             <Select
               defaultValue="Select Location"

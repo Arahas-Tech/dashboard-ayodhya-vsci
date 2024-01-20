@@ -1,4 +1,4 @@
-import { Card, Col, Flex, Progress, Row, Segmented, Select } from "antd";
+import { Card, Flex, Progress, Segmented, Select } from "antd";
 
 import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
@@ -13,13 +13,14 @@ import LineChart from "components/charts/LineChart";
 import GaugeComponent from "react-gauge-component";
 import ValueCard from "./aqi/ValueCard";
 import axios from "axios";
+import SingleColumnChart from "components/charts/SingleColumnChart";
 
 const { Text } = Typography;
 
 function AQI({ AQIs, aqiData, aqiIDs }) {
   const [selectedLocation, setSelectedLocation] = useState();
   const [aqiYesterdayData, setAQIYesterdayData] = useState();
-  // const [yesterdayAQIs, setYesterdayAQIs] = useState();
+  const [chartData, setChartData] = useState();
 
   const [value, setValue] = useState("Current/Live");
 
@@ -132,20 +133,43 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
         }
       );
       let modifiedData = [];
+      let chartData = [];
       response?.data?.data?.map((data) =>
         modifiedData.push(data.parameter_values?.aqi?.value)
       );
 
-      // var total = 0;
-      // var count = 0;
-      // modifiedData.each(function (index, value) {
-      //   total += value;
-      //   count++;
-      // });
+      console.log(response?.data?.data);
+
+      response?.data?.data?.map((data) =>
+        chartData.push({
+          label: new Date(data.time * 1000).toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "2-digit",
+
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          }),
+          y: data.parameter_values?.aqi?.value,
+        })
+      );
+
+      setChartData([
+        {
+          type: "column",
+          dataPoints: chartData,
+        },
+      ]);
+
+      const totalSum = modifiedData.reduce((acc, curr) => {
+        acc += curr;
+        return acc;
+      });
 
       setAQIYesterdayData({
         max: Math.max(...modifiedData),
         min: Math.min(...modifiedData),
+        avg: (totalSum / modifiedData.length).toFixed(0),
       });
     } catch (error) {
       return 0;
@@ -154,7 +178,7 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
 
   useEffect(() => {
     try {
-      if (selectedLocation !== "Select Location") {
+      if (selectedLocation && selectedLocation !== "Select Location") {
         getAQI(
           selectedLocation,
           aqiIDs?.find((item) => {
@@ -263,40 +287,52 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
               options={aqiLocationOptions}
             />
 
-            <Row align="middle" gutter={[8, 8]}>
-              <Col span={6}>
-                <b>Min:</b> {aqiYesterdayData?.min}
-              </Col>
-              <Col span={12}>
-                <GaugeComponent
-                  className={styles.aqiBar}
-                  type="semicircle"
-                  arc={{
-                    colorArray: ["#00b050", "#FF2121"],
-                    padding: 0.02,
-                    subArcs: [
-                      { limit: 50 },
-                      { limit: 100 },
-                      { limit: 200 },
-                      { limit: 300 },
-                      { limit: 400 },
-                      { limit: 500 },
-                      { limit: 900 },
-                    ],
-                  }}
-                  pointer={{ type: "blob", animationDelay: 0 }}
-                  minValue={0}
-                  maxValue={900}
-                  value={aqiYesterdayData?.min ?? 0}
-                />
-              </Col>
-              <Col
-                span={6}
-                style={{ alignItems: "flex-end", textAlign: "right" }}
-              >
-                <b>Max:</b> {aqiYesterdayData?.max}
-              </Col>
-            </Row>
+            <Card
+              translate="yes"
+              title={
+                <Flex align="center" justify="space-between">
+                  <div>
+                    <b>Min:</b> {aqiYesterdayData?.min}
+                  </div>
+                  <div>
+                    <b>Max:</b> {aqiYesterdayData?.max}
+                  </div>
+                </Flex>
+              }
+            >
+              <GaugeComponent
+                className="gauge-sheet"
+                type="semicircle"
+                arc={{
+                  colorArray: ["#00b050", "#FF2121"],
+                  padding: 0.02,
+                  subArcs: [
+                    { limit: 50 },
+                    { limit: 100 },
+                    { limit: 200 },
+                    { limit: 300 },
+                    { limit: 400 },
+                    { limit: 500 },
+                    { limit: 900 },
+                  ],
+                }}
+                labels={{
+                  valueLabel: {
+                    formatTextValue: (value) => "AQI:" + value,
+                    matchColorWithArc: true,
+                    style: {
+                      textShadow: "0",
+                    },
+                  },
+                }}
+                pointer={{ type: "blob", animationDelay: 0, width: 15 }}
+                minValue={0}
+                maxValue={900}
+                value={aqiYesterdayData?.avg ?? 0}
+              />
+            </Card>
+
+            <SingleColumnChart dataSeries={chartData} />
           </>
         )}
 

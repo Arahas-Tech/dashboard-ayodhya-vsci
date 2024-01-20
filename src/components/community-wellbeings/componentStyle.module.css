@@ -34,17 +34,8 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
   .aqiParamCard {
     width: 100%;
   }
 }
-
-/*   colorArray: [
-                    "#00b050",
-                    "#92d050",
-                    "#ffff00",
-                    "#ff9900",
-                    "#ff0000",
-                    "#c00000",
-                  ], */

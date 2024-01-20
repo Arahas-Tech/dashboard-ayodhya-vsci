@@ -51,16 +51,16 @@
   border-radius: 8px;
 }
 
-.aqiBar {
-  height: 250px !important;
-  width: 100% !important;
-}
-
 @media (max-width: 500px) {
   .cardHeader {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     width: 100%;
+  }
+
+  .aqiBar svg {
+    width: 200px !important;
+    height: 200px !important;
   }
 }

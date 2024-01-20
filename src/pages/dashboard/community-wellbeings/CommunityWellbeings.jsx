@@ -4,7 +4,7 @@ import axios from "axios";
 
 import AQI from "components/community-wellbeings/AQI";
 import AQIMap from "components/maps/community-wellbeings/AQIMap";
-import { Col, Flex, Row, Skeleton, Tabs } from "antd";
+import { Card, Col, Flex, Row, Skeleton, Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
@@ -121,23 +121,25 @@ const CommunityWellBeings = () => {
       </Flex>
 
       <Tabs defaultActiveKey="AQI" type="card">
-        <TabPane tab="AQI" key="AQI"></TabPane>
+        <TabPane tab="AQI" key="AQI">
+          {loading ? (
+            <Skeleton />
+          ) : (
+            <Flex vertical gap={16}>
+              <Row gutter={[8, 8]}>
+                <Col xs={24} md={24} lg={12}>
+                  <Card>
+                    <AQIMap aqiData={aqiData} AQIs={AQIs} />
+                  </Card>
+                </Col>
+                <Col xs={24} md={24} lg={12}>
+                  <AQI aqiData={aqiData} AQIs={AQIs} aqiIDs={aqiIDs} />
+                </Col>
+              </Row>
+            </Flex>
+          )}
+        </TabPane>
       </Tabs>
-
-      {loading ? (
-        <Skeleton />
-      ) : (
-        <Flex vertical gap={16}>
-          <Row gutter={[8, 8]}>
-            <Col xs={24} md={24} lg={12}>
-              <AQIMap aqiData={aqiData} AQIs={AQIs} />
-            </Col>
-            <Col xs={24} md={24} lg={12}>
-              <AQI aqiData={aqiData} AQIs={AQIs} aqiIDs={aqiIDs} />
-            </Col>
-          </Row>
-        </Flex>
-      )}
     </>
   );
 };

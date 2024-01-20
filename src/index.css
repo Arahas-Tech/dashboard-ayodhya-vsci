@@ -46,9 +46,9 @@ code {
 }
 
 .tab-cards {
-  height: 60vh;
+  height: 65vh;
   overflow-y: auto;
-  width: 100%;
+  width: 100% !important;
 }
 
 .ant-card-body {

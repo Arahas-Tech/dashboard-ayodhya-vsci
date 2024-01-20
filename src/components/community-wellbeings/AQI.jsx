@@ -160,7 +160,7 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
 
   return (
     <>
-      <Card className="tab-cards">
+      <Card className="tab-cards" style={{ height: "73vh" }}>
         <Segmented
           options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
           block

@@ -58,7 +58,7 @@ const AQIMap = ({ AQIs, aqiData }) => {
       center={mapCenter}
       zoom={11}
       minZoom={10}
-      style={{ height: "60vh", width: "100%" }}
+      style={{ width: "100%", height: "60vh" }}
     >
       <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
 

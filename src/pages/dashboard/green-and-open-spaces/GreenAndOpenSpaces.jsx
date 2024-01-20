@@ -1,7 +1,10 @@
-import { Card, Col, Flex, Row } from "antd";
+import { Card, Col, Flex, Row, Tabs } from "antd";
 import PieChart from "components/charts/PieChart";
 import SingleColumnChart from "components/charts/SingleColumnChart";
+import LandUse from "components/maps/land-use/LandUse";
 import React from "react";
+
+const { TabPane } = Tabs;
 
 const GreenAndOpenSpaces = () => {
   const landuseData = [
@@ -165,63 +168,79 @@ const GreenAndOpenSpaces = () => {
           </Flex>
         </Col>
       </Row>
-      <Flex vertical gap={16} align="middle">
-        <Card title="Present Land Use">
-          <Row gutter={[16, 16]}>
-            <Col xs={24} md={24} lg={12}>
-              <SingleColumnChart
-                chartTitle="As of February 2023*"
-                dataSeries={landUseDataSeries}
-                xAxisTitle=""
-                yAxisTitle="in hectares"
-                xAxisLabel={false}
-                yAxisLabel={false}
-              />
-            </Col>
 
-            <Col xs={24} md={24} lg={12}>
-              <PieChart
-                chartTitle="As of February 2023* (%)"
-                dataSeries={landuseDataPercentage.map(({ label, y }) => ({
-                  label,
-                  y,
-                }))}
-              />
-            </Col>
-          </Row>
-        </Card>
+      <Tabs defaultActiveKey="AQI" type="card">
+        <TabPane tab="Land Use Numbers" key="Land Use Numbers">
+          <div className="tab-cards">
+            <Flex vertical gap={16} align="middle">
+              <Card title="Present Land Use">
+                <Row gutter={[16, 16]}>
+                  <Col xs={24} md={24} lg={12}>
+                    <SingleColumnChart
+                      chartTitle="As of February 2023*"
+                      dataSeries={landUseDataSeries}
+                      xAxisTitle=""
+                      yAxisTitle="in hectares"
+                      xAxisLabel={false}
+                      yAxisLabel={false}
+                    />
+                  </Col>
 
-        <Card title="Projected Land Use (2031)">
-          <Row gutter={[16, 16]}>
-            <Col xs={24} md={24} lg={12}>
-              <SingleColumnChart
-                chartTitle="Projected Land Use (2031)"
-                dataSeries={proposedLandUseDataSeries}
-                xAxisTitle=""
-                yAxisTitle="in hectares"
-                xAxisLabel={false}
-                yAxisLabel={false}
-              />
-            </Col>
+                  <Col xs={24} md={24} lg={12}>
+                    <PieChart
+                      chartTitle="As of February 2023* (%)"
+                      dataSeries={landuseDataPercentage.map(({ label, y }) => ({
+                        label,
+                        y,
+                      }))}
+                    />
+                  </Col>
+                </Row>
+              </Card>
 
-            <Col xs={24} md={24} lg={12}>
-              <PieChart
-                chartTitle="Projected Land Use (2031) (%)"
-                dataSeries={proposedLandUseDataSeriesPercentage.map(
-                  ({ label, y }) => ({
-                    label,
-                    y,
-                  })
-                )}
-                xAxisTitle=""
-                yAxisTitle="in hectares"
-                xAxisLabel={false}
-                yAxisLabel={false}
-              />
-            </Col>
-          </Row>
-        </Card>
-      </Flex>
+              <Card title="Projected Land Use (2031)">
+                <Row gutter={[16, 16]}>
+                  <Col xs={24} md={24} lg={12}>
+                    <SingleColumnChart
+                      chartTitle="Projected Land Use (2031)"
+                      dataSeries={proposedLandUseDataSeries}
+                      xAxisTitle=""
+                      yAxisTitle="in hectares"
+                      xAxisLabel={false}
+                      yAxisLabel={false}
+                    />
+                  </Col>
+
+                  <Col xs={24} md={24} lg={12}>
+                    <PieChart
+                      chartTitle="Projected Land Use (2031) (%)"
+                      dataSeries={proposedLandUseDataSeriesPercentage.map(
+                        ({ label, y }) => ({
+                          label,
+                          y,
+                        })
+                      )}
+                      xAxisTitle=""
+                      yAxisTitle="in hectares"
+                      xAxisLabel={false}
+                      yAxisLabel={false}
+                    />
+                  </Col>
+                </Row>
+              </Card>
+            </Flex>
+          </div>
+        </TabPane>
+
+        <TabPane
+          tab="Satellite Digitization Changes"
+          key="Satellite Digitization Changes"
+        >
+          <div className="tab-cards">
+            <LandUse />
+          </div>
+        </TabPane>
+      </Tabs>
     </>
   );
 };

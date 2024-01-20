@@ -6,18 +6,21 @@ import CanvasJSReact from "@canvasjs/react-charts";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var CanvasJS = CanvasJSReact.CanvasJS;
 CanvasJS.addColorSet("blueShades", [
-  "#4c9f38", // Good Health and Well-being
+  "#DDA63A", // Zero Hunger
+  "#4C9F38", // Good Health and Well-being
   "#ff3a21", // Gender Equality
+  "#26BDE2", // Clean Water
   "#fcc30b", // Affordable and Clean Energy
   "#a21942", // Decent Work and Economic Growth
   "#fd6925", // Industry, Innovation, and Infrastructure
   "#fd9d24", // Sustainable Cities and Communities
-  "#c4d600", // Responsible Consumption and Production
-  "#0a97b0", // Climate Action
-  "#56c02b", // Life Below Water
-  "#00689d", // Life on Land
-  "#19486a", // Peace, Justice, and Strong Institutions
-  "#9e479b", // Partnerships for the Goals
+  "#DD1367", // Reduced Inequalities
+  "#BF8B2E", // Responsible Consumption and Production
+  "#3F7E44", // Climate Action
+  "#0A97D9", // Life Below Water
+  "#56c02b", // Life on Land
+  "#00689D", // Peace, Justice, and Strong Institutions
+  "#19486A", // Partnerships for the Goals
 ]);
 
 const BarChart = ({ dataSeries, xAxisTitle, yAxisTitle, chartTitle }) => {

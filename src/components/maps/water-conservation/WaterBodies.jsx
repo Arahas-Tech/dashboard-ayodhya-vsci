@@ -31,24 +31,6 @@ const WaterBodies = () => {
     layer.bindPopup(popupContent);
   };
 
-  let markers;
-
-  const addMarkers = () => {
-    markers = [];
-
-    WaterBodiesLayer?.features?.map((feature) =>
-      markers.push({
-        position: {
-          latitude: feature.geometry.coordinates[1],
-          longitude: feature.geometry.coordinates[0],
-        },
-        properties: feature.properties,
-      })
-    );
-  };
-
-  addMarkers();
-
   return (
     <MapContainer
       center={mapCenter}

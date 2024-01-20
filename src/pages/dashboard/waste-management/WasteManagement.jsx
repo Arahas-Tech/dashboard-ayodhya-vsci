@@ -145,7 +145,7 @@ const WasteManagement = () => {
         </Col>
 
         <Col xs={24} md={24} lg={12}>
-          <Card className="tab-cards">
+          <Card className="tab-cards" style={{ height: "75vh" }}>
             <Row gutter={[8, 8]}>
               <Col xs={24} md={12} lg={8}>
                 <div className={styles.kpiCard}>

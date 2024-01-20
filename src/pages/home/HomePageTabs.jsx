@@ -43,7 +43,7 @@ function HomePageTabs() {
                 }
                 key={item.label}
               >
-                <Badge.Ribbon placement="start" text="VCSI: 70.3">
+                <Badge.Ribbon placement="start" text="VCSI: 68">
                   <Card>{item.children}</Card>
                 </Badge.Ribbon>
               </TabPane>

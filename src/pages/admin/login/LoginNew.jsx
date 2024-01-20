@@ -195,7 +195,7 @@ const LoginNew = () => {
                   <Card bodyStyle={scoreCardStyle}>
                     <h2>
                       <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
-                      70
+                      68
                     </h2>
 
                     <p>
@@ -280,7 +280,7 @@ const LoginNew = () => {
                   <Card bodyStyle={scoreCardStyle}>
                     <h2>
                       <span className={styles.vsciScore}>Ayodhya - VCSI:</span>{" "}
-                      70
+                      68
                     </h2>
 
                     <p>

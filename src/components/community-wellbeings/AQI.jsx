@@ -1,13 +1,4 @@
-import {
-  Card,
-  Col,
-  Flex,
-  Progress,
-  Row,
-  Segmented,
-  Select,
-  Tooltip,
-} from "antd";
+import { Card, Col, Flex, Progress, Row, Segmented, Select } from "antd";
 
 import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";

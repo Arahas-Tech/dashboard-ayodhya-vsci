@@ -7,7 +7,7 @@ import { useMap } from "react-leaflet";
 
 const markerClusters = L.markerClusterGroup();
 let customMarker = L.icon({
-  iconUrl: require("assets/svg/pond.svg").default,
+  iconUrl: require("assets/svg/Toilets.svg").default,
   iconSize: [24, 24],
   iconAnchor: [32, 64],
 });

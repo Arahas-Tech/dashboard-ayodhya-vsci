@@ -16,8 +16,6 @@ const WaterBodies = () => {
     <br /> 
     <hr />
     <b>Perimeter:</b> ${properties.Perimeter} 
-    <br />    <hr />
-    <b>Village:</b> ${properties.Village} 
     <br/>     <hr />
     <b>Tehsil:</b> ${properties.Tehsil}
     <br/>    <hr />

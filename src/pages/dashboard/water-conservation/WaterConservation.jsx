@@ -23,6 +23,7 @@ import DoughnutChart from "components/charts/DoughnutChart";
 import BarChart from "components/charts/BarChart";
 import WaterBodies from "components/maps/water-conservation/WaterBodies";
 import RainfallChart from "components/charts/DrillDownCharts";
+import WaterBodiesSatellite from "components/maps/water-conservation/WaterBodiesSatellite";
 
 const { TabPane } = Tabs;
 
@@ -153,12 +154,6 @@ const WaterConservation = () => {
           alt="11"
           className="goals-image"
         />
-
-        <img
-          src={require("assets/sdgs/E-WEB-Goal-15.png")}
-          alt="15"
-          className="goals-image"
-        />
       </Flex>
       <Row gutter={[8, 8]}>
         <Col xs={24} md={24} lg={12}>
@@ -247,6 +242,14 @@ const WaterConservation = () => {
                     </Badge.Ribbon>
                   </Col>
                 </Row>
+              </Card>
+            </TabPane>
+
+            <TabPane tab="Satellite Data" key="Satellite Data">
+              <Card className="tab-cards">
+                <Card>
+                  <WaterBodiesSatellite />
+                </Card>
               </Card>
             </TabPane>
 

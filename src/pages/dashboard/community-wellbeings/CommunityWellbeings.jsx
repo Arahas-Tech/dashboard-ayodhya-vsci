@@ -103,16 +103,15 @@ const CommunityWellBeings = () => {
     <>
       <Flex align="center" gap={5}>
         <img
-          src={require("assets/sdgs/E-WEB-Goal-06.png")}
-          alt="06"
-          className="goals-image"
-        />
-        <img
           src={require("assets/sdgs/E-WEB-Goal-11.png")}
           alt="11"
           className="goals-image"
         />
-
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-13.png")}
+          alt="13"
+          className="goals-image"
+        />
         <img
           src={require("assets/sdgs/E-WEB-Goal-15.png")}
           alt="15"

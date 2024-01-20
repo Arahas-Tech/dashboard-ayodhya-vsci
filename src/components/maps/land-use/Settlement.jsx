@@ -32,7 +32,7 @@ const Settlement = () => {
                   easeLinearity={0.35}
                   style={{ width: "100%", height: "61vh" }}
                 >
-                  <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
+                  <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" />
                   <GeoJSON data={ADABoundary} style={{ color: "#fff" }} />
                   <GeoJSON
                     data={Settlement_2017}
@@ -58,7 +58,7 @@ const Settlement = () => {
                   easeLinearity={0.35}
                   style={{ width: "100%", height: "61vh" }}
                 >
-                  <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
+                  <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" />
                   <GeoJSON data={ADABoundary} style={{ color: "#fff" }} />
                   <GeoJSON
                     data={Settlement_2020}
@@ -84,7 +84,7 @@ const Settlement = () => {
                   easeLinearity={0.35}
                   style={{ width: "100%", height: "61vh" }}
                 >
-                  <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
+                  <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" />
                   <GeoJSON data={ADABoundary} style={{ color: "#fff" }} />
                   <GeoJSON
                     data={Settlement_2024}

@@ -26,7 +26,7 @@ const Canal = () => {
             easeLinearity={0.35}
             style={{ width: "30vw", height: "61vh" }}
           >
-            <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}" />
+            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" />
 
             <GeoJSON data={Canal_2024} style={{ color: "#fd9d24" }} />
           </MapContainer>

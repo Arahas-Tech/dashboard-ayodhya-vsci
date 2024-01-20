@@ -133,6 +133,12 @@ const WasteManagement = () => {
           alt="11.6"
           className="goals-image"
         />
+
+        <img
+          src={require("assets/sdgs/E-WEB-Goal-12.png")}
+          alt="12"
+          className="goals-image"
+        />
       </Flex>
 
       <Row gutter={[8, 8]}>

@@ -1,4 +1,13 @@
-import { Card, Col, Flex, Progress, Row, Segmented, Select } from "antd";
+import {
+  Card,
+  Col,
+  Flex,
+  Progress,
+  Row,
+  Segmented,
+  Select,
+  Tooltip,
+} from "antd";
 
 import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
@@ -22,6 +31,18 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
   // const [yesterdayAQIs, setYesterdayAQIs] = useState();
 
   const [value, setValue] = useState("Current/Live");
+
+  const aqiTooltipValues = [
+    {
+      CO2: "High concentrations of CO2 can induce headache, nausea, dizziness, and a tingling (needle-like) feeling. Higher levels may lead to difficulty in breathing (dyspnea), sweating, exhaustion, vomiting, and an increase in heart rate (tachycardia). Loss of consciousness occurs at jarringly high levels of CO2.",
+      NO2: "Breathing air with a high concentration of NO2 can irritate airways in the human respiratory system. Such exposures over short periods can aggravate respiratory diseases, particularly asthma, leading to respiratory symptoms (such as coughing, wheezing or difficulty breathing), hospital admissions and visits to emergency rooms.",
+      SO2: "SO2 can affect both health and the environment. Short-term exposures to SO2 can harm the human respiratory system and make breathing difficult. People with asthma, particularly children, are sensitive to these effects of SO2.",
+      "PM2.5":
+        "Inhalable particles, with diameters that are generally 10 micrometers and smaller. Coarse particles can irritate your eyes, nose, and throat.",
+      PM10: "Fine inhalable particles, with diameters that are generally 2.5 micrometers and smaller. Fine (smaller) particles, are more dangerous because they can get into the deep parts of your lungs — or even into your blood",
+      TVOC: "Total volatile organic compounds (TVOC) is a grouping of a wide range of organic chemical compounds to simplify reporting when these are present in ambient air or emissions. General effects of exposure to VOCs include: irritation to the eyes, nose and throat; headaches; loss of coordination; nausea; and damage to the liver, kidney and central nervous system.",
+    },
+  ];
 
   const [ellipsis] = useState(true);
   const aqiColors = [
@@ -162,13 +183,14 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
     <>
       <Card className="tab-cards" style={{ height: "73vh" }}>
         <Segmented
-          options={["Current/Live", "Yesterday", "Weekly", "Past Data"]}
+          options={["Current/Live", "Yesterday", "Past Data"]}
           block
           value={value}
           onChange={setValue}
         />
 
         {value === "Current/Live" &&
+          aqiData &&
           aqiData?.map((data) => {
             const AQI = AQIs && AQIs[data.id];
             return (
@@ -219,18 +241,23 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
                       backgroundColor: getColorForAqi(AQI),
                     }}
                   >
-                    {data.parameters.map(
-                      (parameter) =>
-                        !(
-                          parameter.key === "aqi" ||
-                          parameter.key === "data_availability"
-                        ) && (
-                          <ValueCard
-                            parameter={parameter}
-                            borderColor={getColorForAqiParams(parameter.value)}
-                          />
-                        )
-                    )}
+                    {data &&
+                      data?.parameters?.map(
+                        (parameter) =>
+                          !(
+                            parameter?.key === "aqi" ||
+                            parameter?.key === "data_availability"
+                          ) && (
+                            <ValueCard
+                              key={parameter?.key}
+                              parameter={parameter}
+                              aqiTooltipValues={aqiTooltipValues}
+                              borderColor={getColorForAqiParams(
+                                parameter?.value
+                              )}
+                            />
+                          )
+                      )}
                   </div>
                 </div>
               </>

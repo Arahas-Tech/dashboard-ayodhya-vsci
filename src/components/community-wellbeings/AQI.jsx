@@ -287,52 +287,56 @@ function AQI({ AQIs, aqiData, aqiIDs }) {
               options={aqiLocationOptions}
             />
 
-            <Card
-              translate="yes"
-              title={
-                <Flex align="center" justify="space-between">
-                  <div>
-                    <b>Min:</b> {aqiYesterdayData?.min}
-                  </div>
-                  <div>
-                    <b>Max:</b> {aqiYesterdayData?.max}
-                  </div>
-                </Flex>
-              }
-            >
-              <GaugeComponent
-                className="gauge-sheet"
-                type="semicircle"
-                arc={{
-                  colorArray: ["#00b050", "#FF2121"],
-                  padding: 0.02,
-                  subArcs: [
-                    { limit: 50 },
-                    { limit: 100 },
-                    { limit: 200 },
-                    { limit: 300 },
-                    { limit: 400 },
-                    { limit: 500 },
-                    { limit: 900 },
-                  ],
-                }}
-                labels={{
-                  valueLabel: {
-                    formatTextValue: (value) => "AQI:" + value,
-                    matchColorWithArc: true,
-                    style: {
-                      textShadow: "0",
-                    },
-                  },
-                }}
-                pointer={{ type: "blob", animationDelay: 0, width: 15 }}
-                minValue={0}
-                maxValue={900}
-                value={aqiYesterdayData?.avg ?? 0}
-              />
-            </Card>
+            {selectedLocation && (
+              <>
+                <Card
+                  translate="yes"
+                  title={
+                    <Flex align="center" justify="space-between">
+                      <div>
+                        <b>Min:</b> {aqiYesterdayData?.min}
+                      </div>
+                      <div>
+                        <b>Max:</b> {aqiYesterdayData?.max}
+                      </div>
+                    </Flex>
+                  }
+                >
+                  <GaugeComponent
+                    className="gauge-sheet"
+                    type="semicircle"
+                    arc={{
+                      colorArray: ["#00b050", "#FF2121"],
+                      padding: 0.02,
+                      subArcs: [
+                        { limit: 50 },
+                        { limit: 100 },
+                        { limit: 200 },
+                        { limit: 300 },
+                        { limit: 400 },
+                        { limit: 500 },
+                        { limit: 900 },
+                      ],
+                    }}
+                    labels={{
+                      valueLabel: {
+                        formatTextValue: (value) => "AQI:" + value,
+                        matchColorWithArc: true,
+                        style: {
+                          textShadow: "0",
+                        },
+                      },
+                    }}
+                    pointer={{ type: "blob", animationDelay: 0, width: 15 }}
+                    minValue={0}
+                    maxValue={900}
+                    value={aqiYesterdayData?.avg ?? 0}
+                  />
+                </Card>
 
-            <SingleColumnChart dataSeries={chartData} />
+                <SingleColumnChart dataSeries={chartData} />
+              </>
+            )}
           </>
         )}
 

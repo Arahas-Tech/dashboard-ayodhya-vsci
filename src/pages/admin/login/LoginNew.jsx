@@ -321,7 +321,7 @@ const LoginNew = () => {
           <Flex align="center" gap={5}>
             <b>Partner: </b>{" "}
             <img
-              height="30"
+              height="40"
               src={require("assets/Logimetrix_Logo_19012024.png")}
               alt="Logimetrix"
             />

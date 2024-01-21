@@ -139,6 +139,16 @@ const CommunityWellBeings = () => {
           )}
         </TabPane>
       </Tabs>
+
+      <div className="partnerLogo">
+        <Flex align="center" gap={5}>
+          <img
+            height="20"
+            src={require("assets/Aurassure_Logo.png")}
+            alt="Aurassure"
+          />
+        </Flex>
+      </div>
     </>
   );
 };

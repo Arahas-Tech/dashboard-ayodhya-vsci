@@ -59,7 +59,7 @@ function HomePageTabs() {
           onClick={handleNavigateHome}
         />
 
-        <div className="partnerLogo">
+        {/* <div className="partnerLogo">
           <Flex align="center" gap={5}>
             <b>Partner: </b>{" "}
             <img
@@ -68,7 +68,7 @@ function HomePageTabs() {
               alt="Logimetrix"
             />
           </Flex>
-        </div>
+        </div> */}
       </Layout>
     </>
   );

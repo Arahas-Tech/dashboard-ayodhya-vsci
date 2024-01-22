@@ -23,7 +23,7 @@ const WaterBodies = () => {
     <br/>     <hr />
     <b>Type of Water Body:</b> ${properties.Type_Water}
     <br/>     <hr />
-    <b>Area (in ha):</b> ${properties.Area_in_Ha}
+    <b>Area (in ha):</b> ${properties.Area_IN_Ha}
     <br/>`;
 
     layer.bindPopup(popupContent);

@@ -17,7 +17,7 @@ process.env.NODE_ENV !== "development"
     })
   : console.log("PROD");
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(
   <React.StrictMode>
     <ConfigProvider

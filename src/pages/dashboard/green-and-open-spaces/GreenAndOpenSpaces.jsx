@@ -233,7 +233,7 @@ const GreenAndOpenSpaces = () => {
         </TabPane>
 
         <TabPane
-          tab="Satellite Data Change Detection"
+          tab="Satellite Data-Change Detection"
           key="Satellite Data Change Detection"
         >
           <div className="tab-cards">

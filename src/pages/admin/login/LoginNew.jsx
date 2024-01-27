@@ -138,13 +138,25 @@ const LoginNew = () => {
     <>
       <Layout>
         <Header className={styles.header}>
-          <img src={ADALogo} alt="ada-logo" className={styles.logo} />
+          <a
+            className={styles.ADALogo}
+            href="https://www.ayodhyada.in"
+            target="blank"
+          >
+            <img src={ADALogo} alt="ada-logo" className={styles.logo} />
+          </a>
           <h2 className="header-text">
             {language
               ? "Vedic City Sustainability Index"
               : "वैदिक सतत नगर सूचकांक"}
           </h2>
-          <img src={ArahasLogo} alt="arahas-logo" height="40" />
+          <a
+            className={styles.ArahasLogo}
+            href="https://www.arahas.com"
+            target="blank"
+          >
+            <img src={ArahasLogo} alt="arahas-logo" height="40" />
+          </a>
         </Header>
         {language && (
           <Content className={styles.container}>

@@ -96,6 +96,10 @@
   width: max-content;
 }
 
+.ADALogo {
+  height: max-content !important;
+}
+
 @media (max-width: 768px) {
   .speeches {
     display: flex;

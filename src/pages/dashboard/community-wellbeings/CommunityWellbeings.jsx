@@ -101,22 +101,33 @@ const CommunityWellBeings = () => {
 
   return (
     <>
-      <Flex align="center" gap={5}>
-        <img
-          src={require("assets/sdgs/E-WEB-Goal-11.png")}
-          alt="11"
-          className="goals-image"
-        />
-        <img
-          src={require("assets/sdgs/E-WEB-Goal-13.png")}
-          alt="13"
-          className="goals-image"
-        />
-        <img
-          src={require("assets/sdgs/E-WEB-Goal-15.png")}
-          alt="15"
-          className="goals-image"
-        />
+      <Flex align="flex-end" justify="space-between" gap={5}>
+        <Flex align="center" gap={5}>
+          <img
+            src={require("assets/sdgs/E-WEB-Goal-11.png")}
+            alt="11"
+            className="goals-image"
+          />
+          <img
+            src={require("assets/sdgs/E-WEB-Goal-13.png")}
+            alt="13"
+            className="goals-image"
+          />
+          <img
+            src={require("assets/sdgs/E-WEB-Goal-15.png")}
+            alt="15"
+            className="goals-image"
+          />
+        </Flex>
+
+        <Flex vertical>
+          <p style={{ fontSize: 8 }}>Powered by</p>
+          <img
+            width="60"
+            src={require("assets/GoogleLogo.png")}
+            alt="Google Logo"
+          />
+        </Flex>
       </Flex>
 
       <Tabs defaultActiveKey="AQI" type="card">

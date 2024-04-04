@@ -1,19 +1,27 @@
 .logo {
-  width: auto;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .header {
-  position: fixed !important;
-  top: 0;
+  position: fixed;
   z-index: 1111;
   width: 100%;
-  display: flex !important;
-  padding: 1rem !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 1rem !important;
 }
 
 .image {

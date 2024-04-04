@@ -138,26 +138,34 @@ const LoginNew = () => {
     <>
       <Layout>
         <Header className={styles.header}>
-          <a
-            className={styles.ADALogo}
-            href="https://www.ayodhyada.in"
-            target="blank"
+          <div className={styles.logos}>
+            <a
+              className={styles.logo}
+              href="https://www.ayodhyada.in"
+              target="blank"
+            >
+              <img src={ADALogo} alt="ada-logo" className={styles.logo} />
+            </a>
+
+            <a
+              className={styles.logo}
+              href="https://www.arahas.com"
+              target="blank"
+            >
+              <img src={ArahasLogo} alt="arahas-logo" height="40" />
+            </a>
+          </div>
+
+          <h2 className="header-text">Vedic City Sustainability Index</h2>
+
+          <Button
+            type="primary"
+            href="https://arahas-data-upload-front.vercel.app"
           >
-            <img src={ADALogo} alt="ada-logo" className={styles.logo} />
-          </a>
-          <h2 className="header-text">
-            {language
-              ? "Vedic City Sustainability Index"
-              : "वैदिक सतत नगर सूचकांक"}
-          </h2>
-          <a
-            className={styles.ArahasLogo}
-            href="https://www.arahas.com"
-            target="blank"
-          >
-            <img src={ArahasLogo} alt="arahas-logo" height="40" />
-          </a>
+            Login
+          </Button>
         </Header>
+
         {language && (
           <Content className={styles.container}>
             <Carousel dots={false} autoplay effect="fade">

@@ -5,7 +5,7 @@ import ADALogo from "assets/ADA2023.png";
 
 import styles from "./styles.module.css";
 
-import { Badge, Card, Flex, FloatButton, Layout, Tabs } from "antd";
+import { Badge, Button, Card, Flex, FloatButton, Layout, Tabs } from "antd";
 import { kpiItemsHome } from "constants/kpiRoutes";
 
 import { useNavigate } from "react-router-dom";
@@ -26,9 +26,32 @@ function HomePageTabs() {
     <>
       <Layout>
         <Header className={styles.header}>
-          <img src={ADALogo} alt="ada-logo" className={styles.logo} />
+          <div className={styles.logos}>
+            <a
+              className={styles.logo}
+              href="https://www.ayodhyada.in"
+              target="blank"
+            >
+              <img src={ADALogo} alt="ada-logo" className={styles.logo} />
+            </a>
+
+            <a
+              className={styles.logo}
+              href="https://www.arahas.com"
+              target="blank"
+            >
+              <img src={ArahasLogo} alt="arahas-logo" height="40" />
+            </a>
+          </div>
+
           <h2 className="header-text">Vedic City Sustainability Index</h2>
-          <img src={ArahasLogo} alt="arahas-logo" height="40" />
+
+          <Button
+            type="primary"
+            href="https://arahas-data-upload-front.vercel.app"
+          >
+            Login
+          </Button>
         </Header>
 
         <Content className={styles.container}>

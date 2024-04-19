@@ -72,53 +72,53 @@ const LoginNew = () => {
     query: "(max-width: 968px)",
   });
 
-  const speechesEnglish = [
-    {
-      imgSrc: PM,
-      alt: "PM Modi",
-      className: styles.speechContainerImage,
-      text: "“If any country wants to develop, it has to protect its heritage. We are moving forward with the old and the new.”",
-      designation: "Hon'ble Prime Minister of India",
-    },
-    {
-      imgSrc: CM,
-      alt: "CM-UP",
-      className: styles.speechContainerImage,
-      text: "“The dream is to make Ayodhya a foremost spiritual and tourist city on the global stage in line with sanatan tradition and as a self sustaining modern place that strives for pollution free, zero waste and water abundant city”",
-      designation: "Hon’ble CM, U.P.",
-    },
-    {
-      imgSrc: VC,
-      alt: "VC-ADA",
-      className: styles.speechContainerImage,
-      text: '"Ayodhya Development Authority envisions the development of a city rooted in Vedic principles, nurturing the well-being of its inhabitants, fostering environmental stewardship, and embodying the UN SDGs."',
-      designation: "Municipal Commissioner, Ayodhya & Vice Chairman, ADA",
-    },
-  ];
+  // const speechesEnglish = [
+  //   {
+  //     imgSrc: PM,
+  //     alt: "PM Modi",
+  //     className: styles.speechContainerImage,
+  //     text: "“If any country wants to develop, it has to protect its heritage. We are moving forward with the old and the new.”",
+  //     designation: "Hon'ble Prime Minister of India",
+  //   },
+  //   {
+  //     imgSrc: CM,
+  //     alt: "CM-UP",
+  //     className: styles.speechContainerImage,
+  //     text: "“The dream is to make Ayodhya a foremost spiritual and tourist city on the global stage in line with sanatan tradition and as a self sustaining modern place that strives for pollution free, zero waste and water abundant city”",
+  //     designation: "Hon’ble CM, U.P.",
+  //   },
+  //   {
+  //     imgSrc: VC,
+  //     alt: "VC-ADA",
+  //     className: styles.speechContainerImage,
+  //     text: '"Ayodhya Development Authority envisions the development of a city rooted in Vedic principles, nurturing the well-being of its inhabitants, fostering environmental stewardship, and embodying the UN SDGs."',
+  //     designation: "Municipal Commissioner, Ayodhya & Vice Chairman, ADA",
+  //   },
+  // ];
 
-  const speechesHindi = [
-    {
-      imgSrc: PM,
-      alt: "PM Modi",
-      className: styles.speechContainerImage,
-      text: "“अगर कोई राष्ट्र प्रगति करना चाहता है तो उसे अपनी विरासत की रक्षा करनी होगी| हम प्राचीन एवं आधुनिक मूल्यों के साथ विकास के पथ पर निरंतर अग्रसर हैं|”",
-      designation: "माननीय प्रधानमंत्री, भारत सरकार",
-    },
-    {
-      imgSrc: CM,
-      alt: "CM-UP",
-      className: styles.speechContainerImage,
-      text: "“अयोध्या धाम  वैश्विक स्तर पर एक प्रमुख आध्यात्मिक और पर्यटन नगरी के रूप में स्थापित हो तथा सनातन परंपराओं का पालन करते हुए यह एक आधुनिक तीर्थ स्थान के साथ प्रदूषण रहित और जलवायु समृद्ध शहर बने।”",
-      designation: "माननीय मुख्यमंत्री, उत्तर प्रदेश",
-    },
-    {
-      imgSrc: VC,
-      alt: "VC-ADA",
-      className: styles.speechContainerImage,
-      text: '"अयोध्या विकास प्राधिकरण वैदिक मूल्यों से ओतप्रोत एक ऐसी रामनगरी विकसित करने की कल्पना करता है जो अपने निवासियों की भलाई में निरंतर संलग्न रहे| उन्हें दैहिक, भौतिक तापों से मुक्त रखे| हमेशा उनकी सेवा में तत्पर रहे | चौतरफा हरियाली से घिरे उपवन में उच्चस्तरीय पर्यावरण जागरूकता हो| प्राकृतिक सम्पदा का संरक्षण एवं संवर्धन हर किसी का धर्म हो| पूरा नगर संयुक्तराष्ट्र के सतत विकास लक्ष्यों को हासिल करने के लिए सदैव प्रयत्नशील रहे|"',
-      designation: "नगर आयुक्त, अयोध्या एवं उपाध्यक्ष, ए.डी.ए",
-    },
-  ];
+  // const speechesHindi = [
+  //   {
+  //     imgSrc: PM,
+  //     alt: "PM Modi",
+  //     className: styles.speechContainerImage,
+  //     text: "“अगर कोई राष्ट्र प्रगति करना चाहता है तो उसे अपनी विरासत की रक्षा करनी होगी| हम प्राचीन एवं आधुनिक मूल्यों के साथ विकास के पथ पर निरंतर अग्रसर हैं|”",
+  //     designation: "माननीय प्रधानमंत्री, भारत सरकार",
+  //   },
+  //   {
+  //     imgSrc: CM,
+  //     alt: "CM-UP",
+  //     className: styles.speechContainerImage,
+  //     text: "“अयोध्या धाम  वैश्विक स्तर पर एक प्रमुख आध्यात्मिक और पर्यटन नगरी के रूप में स्थापित हो तथा सनातन परंपराओं का पालन करते हुए यह एक आधुनिक तीर्थ स्थान के साथ प्रदूषण रहित और जलवायु समृद्ध शहर बने।”",
+  //     designation: "माननीय मुख्यमंत्री, उत्तर प्रदेश",
+  //   },
+  //   {
+  //     imgSrc: VC,
+  //     alt: "VC-ADA",
+  //     className: styles.speechContainerImage,
+  //     text: '"अयोध्या विकास प्राधिकरण वैदिक मूल्यों से ओतप्रोत एक ऐसी रामनगरी विकसित करने की कल्पना करता है जो अपने निवासियों की भलाई में निरंतर संलग्न रहे| उन्हें दैहिक, भौतिक तापों से मुक्त रखे| हमेशा उनकी सेवा में तत्पर रहे | चौतरफा हरियाली से घिरे उपवन में उच्चस्तरीय पर्यावरण जागरूकता हो| प्राकृतिक सम्पदा का संरक्षण एवं संवर्धन हर किसी का धर्म हो| पूरा नगर संयुक्तराष्ट्र के सतत विकास लक्ष्यों को हासिल करने के लिए सदैव प्रयत्नशील रहे|"',
+  //     designation: "नगर आयुक्त, अयोध्या एवं उपाध्यक्ष, ए.डी.ए",
+  //   },
+  // ];
 
   const scoreCardStyle = {
     display: "flex",
@@ -181,7 +181,7 @@ const LoginNew = () => {
               />
             </Carousel>
 
-            <Flex className={styles.speeches}>
+            {/* <Flex className={styles.speeches}>
               {speechesEnglish.map((speech) => {
                 return (
                   <SpeechCard
@@ -193,7 +193,7 @@ const LoginNew = () => {
                   />
                 );
               })}
-            </Flex>
+            </Flex> */}
 
             <Flex vertical align="center" gap={16}>
               <Row gutter={[8, 8]} align="middle">
@@ -265,7 +265,7 @@ const LoginNew = () => {
               />
             </Carousel>
 
-            <Flex className={styles.speeches}>
+            {/* <Flex className={styles.speeches}>
               {speechesHindi.map((speech) => {
                 return (
                   <SpeechCard
@@ -277,7 +277,7 @@ const LoginNew = () => {
                   />
                 );
               })}
-            </Flex>
+            </Flex> */}
 
             <Flex vertical align="center" gap={16}>
               <Row gutter={[8, 8]}>
